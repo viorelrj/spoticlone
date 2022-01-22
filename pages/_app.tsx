@@ -1,8 +1,21 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import { ChakraProvider } from '@chakra-ui/react';
+import { TokenContextProvider } from '@spc/contexts/token-context';
+import { AppProps } from 'next/app';
+import Head from 'next/head';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function CustomApp({ Component, pageProps }: AppProps) {
+  return (
+    <TokenContextProvider>
+      <Head>
+        <title>Spoticlone</title>
+      </Head>
+      <main className="app">
+        <ChakraProvider>
+          <Component {...pageProps} />
+        </ChakraProvider>
+      </main>
+    </TokenContextProvider>
+  );
 }
 
-export default MyApp
+export default CustomApp;
