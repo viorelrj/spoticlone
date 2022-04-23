@@ -1,8 +1,15 @@
 import { TokenContext } from '@spc/contexts/token-context';
-import { useContext } from 'react';
+import { useRouter } from 'next/router';
+import { useContext, useEffect } from 'react';
 
 export function Index() {
   const { tokenConfig } = useContext(TokenContext);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!tokenConfig) return;
+    router.push('search');
+  }, []);
 
   return (
     <h1>
