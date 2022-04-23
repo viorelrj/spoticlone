@@ -1,4 +1,5 @@
-import { Box, VStack } from '@chakra-ui/react';
+import { VStack } from '@chakra-ui/react';
+import { Track } from '../track/track.component';
 import { ISearchResultsProps } from './search-results.type';
 
 export function SearchResults({ results }: ISearchResultsProps) {
@@ -13,9 +14,10 @@ export function SearchResults({ results }: ISearchResultsProps) {
   return (
     <VStack>
       {results?.tracks?.items.map((track) => (
-        <Box key={track.id}>
-          {track.name}
-        </Box>
+        <Track
+          key={track.id}
+          track={track}
+        />
       ))}
     </VStack>
   );

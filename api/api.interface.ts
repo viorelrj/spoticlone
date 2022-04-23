@@ -12,6 +12,7 @@ interface IAlbumImage {
 export interface ITrack {
   album: {
     images: IAlbumImage[];
+    name: string;
   },
   artists: {
     id:string;
