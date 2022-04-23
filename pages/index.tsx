@@ -9,7 +9,7 @@ export function Index() {
   useEffect(() => {
     if (!tokenConfig) return;
     router.push('search');
-  }, []);
+  }, [router, tokenConfig]);
 
   return (
     <h1>

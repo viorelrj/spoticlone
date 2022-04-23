@@ -1,8 +1,31 @@
-export type ISearchType = 'album' | 'artist' | 'playlist' | 'track' | 'show' | 'episode';
+import { AxiosResponse } from 'axios';
 
-export interface ISearchResultType {
+export type ISearchType = 'album' | 'artist' | 'playlist' | 'track' | 'show' | 'episode';
+export type ISearchResultType = 'albums' | 'artists' | 'playlists' | 'tracks' | 'shows' | 'episodes';
+
+interface IAlbumImage {
+  height: number;
+  width: number;
+  url: string;
+}
+
+export interface ITrack {
+  album: {
+    images: IAlbumImage[];
+  },
+  artists: {
+    id:string;
+    name: string;
+  }[],
+  href: string,
+  id: string,
+  name: string;
+  uri: string
+}
+
+export interface ISearchResultItem {
   href: string;
-  items: [];
+  items: ITrack[];
   limit: number;
   next: string;
   offset: number;
@@ -11,7 +34,7 @@ export interface ISearchResultType {
 }
 
 export type ISearchResult = {
-  [key in ISearchType]: ISearchResultType;
+  [key in ISearchResultType]: ISearchResultItem;
 }
 
 export type ISearch = (
@@ -19,7 +42,7 @@ export type ISearch = (
   type?: ISearchType[],
   limit?: number,
   offset?: number
-) => Promise<ISearchResult>;
+) => Promise<AxiosResponse<ISearchResult>>;
 
 export interface ISpotifyApi {
   search: ISearch;
