@@ -16,6 +16,7 @@ export function SearchForm({ initialState, onChange }: ISearchFormProps) {
   return (
     <form>
       <Input
+        autoComplete="off"
         {...register('query')}
         placeholder="Search a song..."
       />

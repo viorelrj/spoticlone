@@ -20,13 +20,12 @@ export function SearchPageContent() {
   }, [debouncedSearchState, search]);
 
   return (
-    <>
-      <h1>Search Page</h1>
+    <div>
       <SearchForm
         onChange={(val) => setSearchState(val)}
       />
       <SearchResults results={searchResults} />
-    </>
+    </div>
   );
 }
 
