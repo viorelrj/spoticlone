@@ -7,7 +7,10 @@ export function Index() {
   const router = useRouter();
 
   useEffect(() => {
-    if (!tokenConfig) return;
+    if (!tokenConfig) {
+      router.push('/login');
+      return;
+    }
     router.push('search');
   }, [router, tokenConfig]);
 

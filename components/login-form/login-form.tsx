@@ -1,4 +1,4 @@
-import { Button } from '@chakra-ui/react';
+import { useEffect } from 'react';
 
 const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
 const redirectUri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI;
@@ -8,10 +8,12 @@ const login = () => {
 };
 
 export function LoginForm() {
+  useEffect(() => {
+    login();
+  }, []);
+
   return (
-    <div>
-      <Button onClick={login}>Log in</Button>
-    </div>
+    <div>Redirecting you</div>
   );
 }
 
