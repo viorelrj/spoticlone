@@ -13,18 +13,16 @@ interface ISpotifyApiWrapper {
 }
 
 export function SpotifyApiWrapper({ children }: ISpotifyApiWrapper): ReactElement {
-  const { tokenConfig } = useContext(TokenContext);
-  const [spotifyApiClient, setSpotifyApiClient] = useState<ISpotifyApi|null>(null);
+  const { tokenConfig, setTokenConfig } = useContext(TokenContext);
+  const [spotifyApiClient, setSpotifyApiClient] = useState<ISpotifyApi>();
 
   useEffect(() => {
-    if (!tokenConfig?.access_token) {
-      setSpotifyApiClient(null);
-      return;
-    }
-
-    const axiosInstance = getSpotifyApiAxiosClient(tokenConfig.access_token);
+    const axiosInstance = getSpotifyApiAxiosClient(
+      tokenConfig?.access_token,
+      () => setTokenConfig(null),
+    );
     setSpotifyApiClient(getSpotifyApiClient(axiosInstance));
-  }, [tokenConfig]);
+  }, [setTokenConfig, tokenConfig]);
 
   if (!spotifyApiClient) return children;
 

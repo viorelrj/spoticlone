@@ -10,7 +10,7 @@ export function LoginCallback() {
 
   useEffect(() => {
     setTokenConfig(hashRouteEntries<TokenResponseType>(router.asPath));
-    router.push('/');
+    router.push('/search');
   }, [router, setTokenConfig]);
 
   return (
