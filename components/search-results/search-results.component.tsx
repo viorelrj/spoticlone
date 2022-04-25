@@ -3,9 +3,9 @@ import { Track } from '../track/track.component';
 import { ISearchResultsProps } from './search-results.type';
 import styles from './search-results.module.scss';
 
-export function SearchResults({ results }: ISearchResultsProps) {
+export function SearchResults({ results, className }: ISearchResultsProps) {
   return (
-    <VStack>
+    <VStack className={className}>
       {results?.tracks?.items.map((track) => (
         <button className={styles.result} type="button">
           <Track

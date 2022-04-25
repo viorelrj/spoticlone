@@ -5,6 +5,7 @@ import { SpotifyApiContext } from 'api/api.context';
 import { ISearchResult } from 'api/api.interface';
 import { useDebounce } from 'hooks/debounce.hook';
 import { useContext, useEffect, useState } from 'react';
+import styles from './search.module.scss';
 
 export function SearchPageContent() {
   const { search } = useContext(SpotifyApiContext);
@@ -20,11 +21,15 @@ export function SearchPageContent() {
   }, [debouncedSearchState, search]);
 
   return (
-    <div>
+    <div className={styles.search}>
       <SearchForm
+        className={styles.search_form}
         onChange={(val) => setSearchState(val)}
       />
-      <SearchResults results={searchResults} />
+      <SearchResults
+        className={styles.search_results}
+        results={searchResults}
+      />
     </div>
   );
 }

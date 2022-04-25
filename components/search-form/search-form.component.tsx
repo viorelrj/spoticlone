@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { ISearchFormProps, ISearchFormState } from './search-form.type';
 
-export function SearchForm({ initialState, onChange }: ISearchFormProps) {
+export function SearchForm({ initialState, onChange, className }: ISearchFormProps) {
   const { watch, register } = useForm<ISearchFormState>({
     defaultValues: initialState,
   });
@@ -14,7 +14,7 @@ export function SearchForm({ initialState, onChange }: ISearchFormProps) {
   }, [watch, onChange]);
 
   return (
-    <form>
+    <form className={className}>
       <Input
         autoComplete="off"
         {...register('query')}
