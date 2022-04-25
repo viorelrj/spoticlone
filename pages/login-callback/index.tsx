@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
 import { hashRouteEntries } from '@spc/utils/hash-route-entries/hash-route-entries';
 import { TokenResponseType } from '@spc/types/token';
-import { TokenContext } from '@spc/contexts/token-context';
+import { TokenContext } from '@spc/contexts/token.context';
 
 export function LoginCallback() {
   const router = useRouter();

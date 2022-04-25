@@ -7,10 +7,12 @@ body {
   overflow: hidden;
 
   & > div {
+    display: flex;
     height: 100%;
+    flex-direction: column;
   }
 }
 
 .app {
-  height: 100%;
+  flex-grow: 1;
 }

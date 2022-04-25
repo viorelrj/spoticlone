@@ -1,4 +1,4 @@
-import { TokenContext } from '@spc/contexts/token-context';
+import { TokenContext } from '@spc/contexts/token.context';
 import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
 

@@ -1,4 +1,4 @@
-import { TokenContext } from '@spc/contexts/token-context';
+import { TokenContext } from '@spc/contexts/token.context';
 import {
   ReactElement,
   useContext, useEffect, useState,

@@ -1,12 +1,15 @@
+import { IChildrenProps } from '@spc/types/base-props';
 import { TokenResponseType } from '@spc/types/token';
-import { createContext, FC, ReactNode, useState } from 'react';
+import {
+  createContext, useState,
+} from 'react';
 
 export const TokenContext = createContext({
   tokenConfig: {} as TokenResponseType | undefined,
   setTokenConfig: (val: TokenResponseType) => {},
 });
 
-export const TokenContextProvider:FC<{children: ReactNode}> = ({children}) => {
+export function TokenContextProvider({ children }: IChildrenProps) {
   const [tokenConfig, setTokenConfig] = useState<TokenResponseType>();
 
   return (
