@@ -1,6 +1,6 @@
 import { IChildrenProps } from '@spc/types/base-props';
 import {
-  useContext, useEffect, useState,
+  useContext, useDebugValue, useEffect, useState,
 } from 'react';
 import { TokenContext } from '../token.context';
 import { PlayerContext } from './player.context';

@@ -38,13 +38,32 @@ export type ISearchResult = {
   [key in ISearchResultType]: ISearchResultItem;
 }
 
-export type ISearch = (
+export type ISearchGetter = (
   query: string,
   type?: ISearchType[],
   limit?: number,
   offset?: number
 ) => Promise<AxiosResponse<ISearchResult>>;
 
+export interface IDevice {
+  id: string;
+  is_active: boolean;
+  is_private_session: boolean;
+  is_restricted: boolean;
+  name: string;
+  type: string;
+  volume_percent: number;
+}
+
+export interface IAvailableDevices {
+  devices: IDevice[];
+}
+export type IAvaiablesDeviceGetter = () => Promise<AxiosResponse<IAvailableDevices>>;
+
+export type IPlaybackTransferSetter = (deviceId: string, play: boolean) => Promise<AxiosResponse>;
+
 export interface ISpotifyApi {
-  search: ISearch;
+  search: ISearchGetter;
+  getAvailableDevices: IAvaiablesDeviceGetter;
+  transferPlayback: IPlaybackTransferSetter;
 }

@@ -8,7 +8,7 @@ function getLoginSearchParams(id: string, redirect: string) {
   searchParams.append('client_id', id);
   searchParams.append('redirect_uri', redirect);
   searchParams.append('response_type', 'token');
-  searchParams.append('scope', 'user-read-private user-read-email app-remote-control streaming');
+  searchParams.append('scope', 'user-read-private user-read-email app-remote-control streaming user-read-playback-state user-modify-playback-state app-remote-control');
 
   return searchParams;
 }

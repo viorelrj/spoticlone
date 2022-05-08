@@ -2,7 +2,7 @@ import axios, { AxiosError } from 'axios';
 
 const unauthorizedInterceptor = (callback?: () => any) => (error: AxiosError) => {
   if (error.response?.status !== 401) return error;
-  return callback?.();
+  // return callback?.();
 };
 
 export const getSpotifyApiAxiosClient = (token?: string, refreshCallback?: () => any) => {

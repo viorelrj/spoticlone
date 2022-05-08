@@ -2,6 +2,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { Player } from '@spc/componvents/player/player.component';
 import { PlayerContextProvider } from '@spc/contexts/player/player.provider';
 import { TokenContextProvider } from '@spc/contexts/token.context';
+import { SpotifyApiWrapper } from 'api/api.wrapper';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
@@ -12,17 +13,19 @@ function CustomApp({ Component, pageProps }: AppProps) {
     <TokenContextProvider>
       <ChakraProvider>
         <PlayerContextProvider>
-          <Head>
-            <title>Spoticlone</title>
-          </Head>
-          <main className="app">
-            <Component {...pageProps} />
-          </main>
-          <Player />
-          <Script
-            src="https://sdk.scdn.co/spotify-player.js"
-            strategy="beforeInteractive"
-          />
+          <SpotifyApiWrapper>
+            <Head>
+              <title>Spoticlone</title>
+            </Head>
+            <main className="app">
+              <Component {...pageProps} />
+            </main>
+            <Player />
+            <Script
+              src="https://sdk.scdn.co/spotify-player.js"
+              strategy="beforeInteractive"
+            />
+          </SpotifyApiWrapper>
         </PlayerContextProvider>
       </ChakraProvider>
     </TokenContextProvider>
