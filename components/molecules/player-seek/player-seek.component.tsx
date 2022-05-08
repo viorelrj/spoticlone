@@ -8,7 +8,7 @@ import {
 import { IPlayerSeekProps } from './player-seek.type';
 
 export function PlayerSeek({
-  position, duration, isPlaying, onSeek,
+  position, duration, isPlaying, onSeek, className,
 }: IPlayerSeekProps) {
   const stepSize = 1000;
 
@@ -36,6 +36,8 @@ export function PlayerSeek({
       min={0}
       max={duration}
       onChange={onChange}
+      step={5000}
+      className={className}
     >
       <SliderTrack>
         <SliderFilledTrack />

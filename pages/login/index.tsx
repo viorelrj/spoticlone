@@ -1,4 +1,4 @@
-import { LoginForm } from '@spc/componvents/login-form/login-form';
+import { LoginForm } from '@spc/componvents/molecules/login-form/login-form';
 
 export function Login() {
   return (

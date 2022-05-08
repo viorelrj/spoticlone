@@ -1,6 +1,6 @@
-import { SearchForm } from '@spc/componvents/search-form/search-form.component';
-import { ISearchFormState } from '@spc/componvents/search-form/search-form.type';
-import { SearchResults } from '@spc/componvents/search-results/search-results.component';
+import { SearchForm } from '@spc/componvents/molecules/search-form/search-form.component';
+import { ISearchFormState } from '@spc/componvents/molecules/search-form/search-form.type';
+import { SearchResults } from '@spc/componvents/molecules/search-results/search-results.component';
 import { SpotifyApiContext } from 'api/api.context';
 import { ISearchResult } from 'api/api.interface';
 import { useDebounce } from 'hooks/debounce.hook';

@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.player {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  max-width: 1200px;
+  gap: 2rem;
+  min-height: 5rem;
+  padding: 0 1rem;
+  border: 1px solid var(--chakra-colors-gray-200);
+  border-radius: var(--chakra-radii-md);
+  margin: 0 0.5rem 0.5rem;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}

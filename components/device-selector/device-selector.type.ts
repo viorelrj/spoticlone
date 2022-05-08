@@ -3,6 +3,7 @@ import { IDevice } from 'api/api.interface';
 
 export interface IDeviceSelectorProps extends IBaseProps {
   devices: IDevice[];
+  value?: string;
   // eslint-disable-next-line no-unused-vars
-  onChange?: (device: IDevice) => void;
+  onChange?: (device: string) => void;
 }

@@ -1,6 +1,6 @@
 import { IChildrenProps } from '@spc/types/base-props';
 import {
-  useContext, useDebugValue, useEffect, useState,
+  useContext, useEffect, useState,
 } from 'react';
 import { TokenContext } from '../token.context';
 import { PlayerContext } from './player.context';
@@ -18,6 +18,7 @@ export function PlayerContextProvider({ children }: IChildrenProps) {
   useEffect(() => {
     if (!sdkLoaded) return;
     const nextPlayer = tokenConfig ? createPlayer(tokenConfig.access_token) : null;
+    nextPlayer?.connect();
     setPlayer(nextPlayer);
   }, [tokenConfig, sdkLoaded]);
 

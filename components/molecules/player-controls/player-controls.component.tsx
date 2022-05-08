@@ -3,23 +3,30 @@ import {
   ImNext, ImPlay2, ImPause, ImPrevious,
 } from 'react-icons/im';
 import { IPlayerControlsProps } from './player-controls.type';
+import styles from './player-controls.module.scss';
 
 export function PlayerControls({
-  onPrevious, onNext, onToggle, isPlaying,
+  onPrevious, onNext, onToggle, isPlaying, className,
 }: IPlayerControlsProps) {
   return (
-    <div className="controls">
+    <div className={`${styles.controls} ${className}`}>
       <IconButton
+        isRound
+        variant="ghost"
         onClick={onPrevious}
         aria-label="Play previous Track"
         icon={<ImPrevious />}
       />
       <IconButton
+        isRound
+        variant="ghost"
         onClick={onToggle}
         aria-label="Toggle Play"
         icon={isPlaying ? <ImPause /> : <ImPlay2 />}
       />
       <IconButton
+        isRound
+        variant="ghost"
         onClick={onNext}
         aria-label="Play next Track"
         icon={<ImNext />}
