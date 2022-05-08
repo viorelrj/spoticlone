@@ -1,5 +1,5 @@
 import { Button } from '@chakra-ui/react';
-import { PlayerContext } from '@spc/contexts/plyaer/player.context';
+import { PlayerContext } from '@spc/contexts/player/player.context';
 import { useContext, useEffect } from 'react';
 import { IPLayerProps } from './player.type';
 

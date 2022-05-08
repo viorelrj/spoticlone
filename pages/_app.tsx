@@ -1,6 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import { Player } from '@spc/componvents/player/player.component';
-import { PlayerContextProvider } from '@spc/contexts/plyaer/player.provider';
+import { PlayerContextProvider } from '@spc/contexts/player/player.provider';
 import { TokenContextProvider } from '@spc/contexts/token.context';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
