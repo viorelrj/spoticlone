@@ -61,9 +61,11 @@ export interface IAvailableDevices {
 export type IAvaiablesDeviceGetter = () => Promise<AxiosResponse<IAvailableDevices>>;
 
 export type IPlaybackTransferSetter = (deviceId: string, play: boolean) => Promise<AxiosResponse>;
+export type IPlaybackPlaySetter = (contextUri: string) => Promise<AxiosResponse>;
 
 export interface ISpotifyApi {
   search: ISearchGetter;
   getAvailableDevices: IAvaiablesDeviceGetter;
   transferPlayback: IPlaybackTransferSetter;
+  setPlaying: IPlaybackPlaySetter;
 }

@@ -1,6 +1,6 @@
 import { AxiosInstance } from 'axios';
 import {
-  IAvaiablesDeviceGetter, IPlaybackTransferSetter, ISearchGetter, ISpotifyApi,
+  IAvaiablesDeviceGetter, IPlaybackPlaySetter, IPlaybackTransferSetter, ISearchGetter, ISpotifyApi,
 } from './api.interface';
 
 function searchGetter(axios: AxiosInstance): ISearchGetter {
@@ -28,10 +28,17 @@ function transferPlayback(axios: AxiosInstance): IPlaybackTransferSetter {
   });
 }
 
+function setPlaying(axios: AxiosInstance): IPlaybackPlaySetter {
+  return (contextUri: string) => axios.put('/me/player/play', {
+    uris: [contextUri],
+  });
+}
+
 export function getSpotifyApiClient(axios: AxiosInstance): ISpotifyApi {
   return {
     search: searchGetter(axios),
     getAvailableDevices: availableDevicesGetter(axios),
     transferPlayback: transferPlayback(axios),
+    setPlaying: setPlaying(axios),
   };
 }

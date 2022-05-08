@@ -4,21 +4,31 @@ import { SearchResults } from '@spc/componvents/molecules/search-results/search-
 import { SpotifyApiContext } from 'api/api.context';
 import { ISearchResult } from 'api/api.interface';
 import { useDebounce } from 'hooks/debounce.hook';
-import { useContext, useEffect, useState } from 'react';
+import {
+  useCallback, useContext, useEffect, useState,
+} from 'react';
 import styles from './search.module.scss';
 
 export function SearchPageContent() {
-  const { search } = useContext(SpotifyApiContext);
+  const { search, setPlaying } = useContext(SpotifyApiContext);
   const [searchState, setSearchState] = useState<ISearchFormState>();
   const debouncedSearchState = useDebounce(searchState, 120);
 
   const [searchResults, setSearchResults] = useState<ISearchResult>();
 
   useEffect(() => {
+  }, [searchResults]);
+
+  useEffect(() => {
     if (!debouncedSearchState?.query) return;
 
     search(debouncedSearchState.query, ['track']).then(({ data }) => setSearchResults(data));
   }, [debouncedSearchState, search]);
+
+  const onUriSelect = useCallback((uri: string) => {
+    console.log(uri);
+    setPlaying(uri);
+  }, [setPlaying]);
 
   return (
     <div className={styles.search}>
@@ -29,6 +39,7 @@ export function SearchPageContent() {
       <SearchResults
         className={styles.search_results}
         results={searchResults}
+        onSelect={onUriSelect}
       />
     </div>
   );
