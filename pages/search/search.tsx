@@ -7,10 +7,11 @@ import { useDebounce } from 'hooks/debounce.hook';
 import {
   useCallback, useContext, useEffect, useState,
 } from 'react';
+import { search } from '../../api/api.client.v2';
 import styles from './search.module.scss';
 
 export function SearchPageContent() {
-  const { search, setPlaying } = useContext(SpotifyApiContext);
+  const { setPlaying } = useContext(SpotifyApiContext);
   const [searchState, setSearchState] = useState<ISearchFormState>();
   const debouncedSearchState = useDebounce(searchState, 120);
 
@@ -20,7 +21,7 @@ export function SearchPageContent() {
     if (!debouncedSearchState?.query) return;
 
     search(debouncedSearchState.query, ['track']).then(({ data }) => setSearchResults(data));
-  }, [debouncedSearchState, search]);
+  }, [debouncedSearchState]);
 
   const onUriSelect = useCallback((uri: string) => {
     setPlaying(uri);

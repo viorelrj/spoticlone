@@ -6,29 +6,33 @@ import { SpotifyApiWrapper } from 'api/api.wrapper';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
+import { Provider } from 'react-redux';
+import { store } from '../store';
 import './_app.scss';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
-    <TokenContextProvider>
-      <ChakraProvider>
-        <SpotifyApiWrapper>
-          <PlayerContextProvider>
-            <Head>
-              <title>Spoticlone</title>
-            </Head>
-            <main className="main">
-              <Component {...pageProps} />
-            </main>
-            <Player className="player" />
-            <Script
-              src="https://sdk.scdn.co/spotify-player.js"
-              strategy="beforeInteractive"
-            />
-          </PlayerContextProvider>
-        </SpotifyApiWrapper>
-      </ChakraProvider>
-    </TokenContextProvider>
+    <Provider store={store}>
+      <TokenContextProvider>
+        <ChakraProvider>
+          <SpotifyApiWrapper>
+            <PlayerContextProvider>
+              <Head>
+                <title>Spoticlone</title>
+              </Head>
+              <main className="main">
+                <Component {...pageProps} />
+              </main>
+              <Player className="player" />
+              <Script
+                src="https://sdk.scdn.co/spotify-player.js"
+                strategy="beforeInteractive"
+              />
+            </PlayerContextProvider>
+          </SpotifyApiWrapper>
+        </ChakraProvider>
+      </TokenContextProvider>
+    </Provider>
   );
 }
 
