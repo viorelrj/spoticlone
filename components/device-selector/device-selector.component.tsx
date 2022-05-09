@@ -1,17 +1,34 @@
-import { Select } from '@chakra-ui/react';
+import {
+  IconButton,
+  Menu, MenuButton, MenuItem, MenuList,
+} from '@chakra-ui/react';
+import { ImLaptop } from 'react-icons/im';
+import { IoVolumeHighOutline } from 'react-icons/io5';
 import { IDeviceSelectorProps } from './device-selector.type';
 
 export function DeviceSelector({
-  devices, value, onChange, className,
+  devices, onChange, value,
 }: IDeviceSelectorProps) {
   return (
-    <Select
-      className={className}
-      isFullWidth={false}
-      value={value}
-      onChange={(ev) => onChange?.(ev.target.value)}
-    >
-      {devices.map((device) => <option key={device.id} value={device.id}>{device.name}</option>)}
-    </Select>
+    <Menu>
+      <MenuButton
+        aria-label="Available devices"
+        as={IconButton}
+        icon={<ImLaptop />}
+        isRound
+        variant="ghost"
+      />
+      <MenuList>
+        {devices.map((device) => (
+          <MenuItem
+            key={device.id}
+            onClick={() => onChange?.(device.id)}
+            icon={value === device.id ? <IoVolumeHighOutline /> : undefined}
+          >
+            {device.name}
+          </MenuItem>
+        ))}
+      </MenuList>
+    </Menu>
   );
 }

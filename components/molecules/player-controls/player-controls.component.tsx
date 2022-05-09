@@ -12,21 +12,21 @@ export function PlayerControls({
     <div className={`${styles.controls} ${className}`}>
       <IconButton
         isRound
-        variant="ghost"
+        variant="solid"
         onClick={onPrevious}
         aria-label="Play previous Track"
         icon={<ImPrevious />}
       />
       <IconButton
         isRound
-        variant="ghost"
+        variant="solid"
         onClick={onToggle}
         aria-label="Toggle Play"
         icon={isPlaying ? <ImPause /> : <ImPlay2 />}
       />
       <IconButton
         isRound
-        variant="ghost"
+        variant="solid"
         onClick={onNext}
         aria-label="Play next Track"
         icon={<ImNext />}

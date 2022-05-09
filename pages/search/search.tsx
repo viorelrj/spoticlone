@@ -26,7 +26,6 @@ export function SearchPageContent() {
   }, [debouncedSearchState, search]);
 
   const onUriSelect = useCallback((uri: string) => {
-    console.log(uri);
     setPlaying(uri);
   }, [setPlaying]);
 

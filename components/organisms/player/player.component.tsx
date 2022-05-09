@@ -70,30 +70,28 @@ export function Player() {
   );
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.player}>
-        <div className={styles.left} />
-        <div className={styles.center}>
-          <PlayerControls
-            onPrevious={handlePrev}
-            onNext={handleNext}
-            onToggle={handleTogglePlay}
-            isPlaying={!isPaused}
-          />
-          <PlayerSeek
-            position={songPosition}
-            duration={songDuration}
-            isPlaying={!isPaused}
-            onSeek={seek}
-          />
-        </div>
-        <div className={styles.right}>
-          <DeviceSelector
-            devices={devices}
-            value={activeDeviceId}
-            onChange={handleDeviceChange}
-          />
-        </div>
+    <div className={styles.player}>
+      <div className={styles.left} />
+      <div className={styles.center}>
+        <PlayerControls
+          onPrevious={handlePrev}
+          onNext={handleNext}
+          onToggle={handleTogglePlay}
+          isPlaying={!isPaused}
+        />
+        <PlayerSeek
+          position={songPosition}
+          duration={songDuration}
+          isPlaying={!isPaused}
+          onSeek={seek}
+        />
+      </div>
+      <div className={styles.right}>
+        <DeviceSelector
+          devices={devices}
+          value={activeDeviceId}
+          onChange={handleDeviceChange}
+        />
       </div>
     </div>
   );
