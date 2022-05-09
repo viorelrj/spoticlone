@@ -17,10 +17,10 @@ function CustomApp({ Component, pageProps }: AppProps) {
             <Head>
               <title>Spoticlone</title>
             </Head>
-            <main className="app">
+            <main className="main">
               <Component {...pageProps} />
             </main>
-            <Player />
+            <Player className="player" />
             <Script
               src="https://sdk.scdn.co/spotify-player.js"
               strategy="beforeInteractive"

@@ -1,11 +1,21 @@
 import { VStack } from '@chakra-ui/react';
+import { useEffect, useRef } from 'react';
 import { Track } from '../../track/track.component';
 import { ISearchResultsProps } from './search-results.type';
 import styles from './search-results.module.scss';
 
 export function SearchResults({ results, className, onSelect }: ISearchResultsProps) {
+  const containerRef = useRef<HTMLElement>();
+
+  useEffect(() => {
+    containerRef.current?.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, [results]);
+
   return (
-    <VStack className={className}>
+    <VStack className={className} ref={containerRef}>
       {results?.tracks?.items.map((track) => (
         <button
           key={track.id}

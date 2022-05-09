@@ -4,6 +4,11 @@
   flex-direction: column;
 }
 
+.search_form {
+  max-width: 20em;
+  margin-bottom: 1em;
+}
+
 .search_results {
   flex-grow: 1;
   min-height: 0;

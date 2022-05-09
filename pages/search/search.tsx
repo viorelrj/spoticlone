@@ -17,9 +17,6 @@ export function SearchPageContent() {
   const [searchResults, setSearchResults] = useState<ISearchResult>();
 
   useEffect(() => {
-  }, [searchResults]);
-
-  useEffect(() => {
     if (!debouncedSearchState?.query) return;
 
     search(debouncedSearchState.query, ['track']).then(({ data }) => setSearchResults(data));
