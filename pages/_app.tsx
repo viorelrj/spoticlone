@@ -10,30 +10,28 @@ import { Provider } from 'react-redux';
 import { store } from '../store';
 import './_app.scss';
 
-function CustomApp({ Component, pageProps }: AppProps) {
-  return (
-    <Provider store={store}>
-      <TokenContextProvider>
-        <ChakraProvider>
-          <SpotifyApiWrapper>
-            <PlayerContextProvider>
-              <Head>
-                <title>Spoticlone</title>
-              </Head>
-              <main className="main">
-                <Component {...pageProps} />
-              </main>
-              <Player className="player" />
-              <Script
-                src="https://sdk.scdn.co/spotify-player.js"
-                strategy="beforeInteractive"
-              />
-            </PlayerContextProvider>
-          </SpotifyApiWrapper>
-        </ChakraProvider>
-      </TokenContextProvider>
-    </Provider>
-  );
-}
+const CustomApp = ({ Component, pageProps }: AppProps) => (
+  <Provider store={store}>
+    <TokenContextProvider>
+      <ChakraProvider>
+        <SpotifyApiWrapper>
+          <PlayerContextProvider>
+            <Head>
+              <title>Spoticlone</title>
+            </Head>
+            <main className="main">
+              <Component {...pageProps} />
+            </main>
+            <Player className="player" />
+            <Script
+              src="https://sdk.scdn.co/spotify-player.js"
+              strategy="beforeInteractive"
+            />
+          </PlayerContextProvider>
+        </SpotifyApiWrapper>
+      </ChakraProvider>
+    </TokenContextProvider>
+  </Provider>
+);
 
 export default CustomApp;

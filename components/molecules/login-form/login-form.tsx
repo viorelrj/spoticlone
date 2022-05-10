@@ -18,7 +18,7 @@ const login = () => {
   window.location.replace(`https://accounts.spotify.com/authorize?${getLoginSearchParams(clientId, redirectUri)}`);
 };
 
-export function LoginForm() {
+export const LoginForm = () => {
   useEffect(() => {
     login();
   }, []);
@@ -26,6 +26,6 @@ export function LoginForm() {
   return (
     <div>Redirecting you</div>
   );
-}
+};
 
 export default LoginForm;

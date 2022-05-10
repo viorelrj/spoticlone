@@ -10,7 +10,7 @@ import {
 import { search } from '../../api/api.client.v2';
 import styles from './search.module.scss';
 
-export function SearchPageContent() {
+export const SearchPageContent = () => {
   const { setPlaying } = useContext(SpotifyApiContext);
   const [searchState, setSearchState] = useState<ISearchFormState>();
   const debouncedSearchState = useDebounce(searchState, 120);
@@ -40,6 +40,6 @@ export function SearchPageContent() {
       />
     </div>
   );
-}
+};
 
 export default SearchPageContent;

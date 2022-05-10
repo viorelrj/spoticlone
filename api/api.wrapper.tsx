@@ -12,7 +12,7 @@ interface ISpotifyApiWrapper {
   children: ReactElement | ReactElement[];
 }
 
-export function SpotifyApiWrapper({ children }: ISpotifyApiWrapper): ReactElement {
+export const SpotifyApiWrapper = ({ children }: ISpotifyApiWrapper): ReactElement => {
   const { tokenConfig, setTokenConfig } = useContext(TokenContext);
   const [spotifyApiClient, setSpotifyApiClient] = useState<ISpotifyApi>();
 
@@ -31,4 +31,4 @@ export function SpotifyApiWrapper({ children }: ISpotifyApiWrapper): ReactElemen
       {children}
     </SpotifyApiContext.Provider>
   );
-}
+};

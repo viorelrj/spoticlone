@@ -4,7 +4,7 @@ import { Track } from '../../track/track.component';
 import { ISearchResultsProps } from './search-results.type';
 import styles from './search-results.module.scss';
 
-export function SearchResults({ results, className, onSelect }: ISearchResultsProps) {
+export const SearchResults = ({ results, className, onSelect }: ISearchResultsProps) => {
   const containerRef = useRef<HTMLElement>();
 
   useEffect(() => {
@@ -31,4 +31,4 @@ export function SearchResults({ results, className, onSelect }: ISearchResultsPr
       ))}
     </VStack>
   );
-}
+};

@@ -2,7 +2,7 @@ import { Box, Image } from '@chakra-ui/react';
 import { ITrackProps } from './track.type';
 import styles from './track.module.scss';
 
-export function Track({ track }: ITrackProps) {
+export const Track = ({ track }: ITrackProps) => {
   const albumImage = track.album.images[1];
   const albumName = track.album.name;
 
@@ -22,4 +22,4 @@ export function Track({ track }: ITrackProps) {
       </div>
     </Box>
   );
-}
+};

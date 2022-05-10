@@ -11,7 +11,7 @@ import { PlayerControls } from '../../molecules/player-controls/player-controls.
 import { PlayerSeek } from '../../molecules/player-seek/player-seek.component';
 import styles from './player.module.scss';
 
-export function Player({ className }: IBaseProps) {
+export const Player = ({ className }: IBaseProps) => {
   const player = useContext(PlayerContext);
   const api = useContext(SpotifyApiContext);
 
@@ -98,4 +98,4 @@ export function Player({ className }: IBaseProps) {
       </div>
     </div>
   );
-}
+};

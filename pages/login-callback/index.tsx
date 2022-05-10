@@ -6,7 +6,7 @@ import { TokenContext } from '@spc/contexts/token.context';
 import { useDispatch } from 'react-redux';
 import { setToken } from 'features/auth';
 
-export function LoginCallback() {
+export const LoginCallback = () => {
   const router = useRouter();
   const { setTokenConfig } = useContext(TokenContext);
   const dispatch = useDispatch();
@@ -23,6 +23,6 @@ export function LoginCallback() {
       Logging you in...
     </div>
   );
-}
+};
 
 export default LoginCallback;

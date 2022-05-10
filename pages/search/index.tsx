@@ -1,9 +1,7 @@
 import { SearchPageContent } from './search';
 
-export function SearchPage() {
-  return (
-    <SearchPageContent />
-  );
-}
+export const SearchPage = () => (
+  <SearchPageContent />
+);
 
 export default SearchPage;

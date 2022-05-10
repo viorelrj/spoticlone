@@ -1,7 +1,7 @@
 import { TokenContext } from '@spc/contexts/token.context';
 import { useContext } from 'react';
 
-export function Index() {
+export const Index = () => {
   const { tokenConfig } = useContext(TokenContext);
 
   return (
@@ -9,6 +9,6 @@ export function Index() {
       {tokenConfig ? 'Logged in' : 'Not logged in'}
     </h1>
   );
-}
+};
 
 export default Index;

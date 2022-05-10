@@ -7,7 +7,7 @@ import { useForm, useWatch } from 'react-hook-form';
 import { IoCloseOutline, IoSearchOutline } from 'react-icons/io5';
 import { ISearchFormProps, ISearchFormState } from './search-form.type';
 
-export function SearchForm({ initialState, onChange, className }: ISearchFormProps) {
+export const SearchForm = ({ initialState, onChange, className }: ISearchFormProps) => {
   const {
     register, control, reset, setFocus,
   } = useForm<ISearchFormState>({
@@ -45,4 +45,4 @@ export function SearchForm({ initialState, onChange, className }: ISearchFormPro
       </InputGroup>
     </form>
   );
-}
+};

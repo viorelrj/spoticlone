@@ -7,9 +7,9 @@ import {
 } from 'react';
 import { IPlayerSeekProps } from './player-seek.type';
 
-export function PlayerSeek({
+export const PlayerSeek = ({
   position, duration, isPlaying, onSeek, className,
-}: IPlayerSeekProps) {
+}: IPlayerSeekProps) => {
   const stepSize = 1000;
 
   const [statePosition, setStatePosition] = useState(position);
@@ -45,4 +45,4 @@ export function PlayerSeek({
       <SliderThumb />
     </Slider>
   );
-}
+};
