@@ -10,6 +10,7 @@ import { PlayerControls } from './player-controls.component';
 
 import { PlayerSeek } from './player-seek.component';
 import styles from './player.module.scss';
+import { PlayerSeekWrapper } from './player-seek.wrapper';
 
 export const Player = ({ className }: IBaseProps) => {
   const player = useContext(PlayerContext);
@@ -82,11 +83,10 @@ export const Player = ({ className }: IBaseProps) => {
           onToggle={handleTogglePlay}
           isPlaying={!isPaused}
         />
-        <PlayerSeek
+        <PlayerSeekWrapper
           position={songPosition}
           duration={songDuration}
           isPlaying={!isPaused}
-          onSeek={seek}
         />
       </div>
       <div className={styles.right}>

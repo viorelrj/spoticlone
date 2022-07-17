@@ -46,3 +46,5 @@ export const PlayerSeek = ({
     </Slider>
   );
 };
+
+export default PlayerSeek;
