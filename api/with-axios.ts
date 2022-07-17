@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { selectToken } from 'features/auth/selectors';
 import { lensProp, compose, set } from 'ramda';
-import { store } from '../store';
+import { store } from '../store/store';
 
 const authorizationLens = compose(
   lensProp<AxiosRequestConfig>('headers'),

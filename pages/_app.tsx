@@ -7,7 +7,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 import { Provider } from 'react-redux';
 import { PlayerContextProvider } from 'features/player/contexts/player.provider';
-import { store } from '../store';
+import { store } from '../store/store';
 import './_app.scss';
 
 const CustomApp = ({ Component, pageProps }: AppProps) => (

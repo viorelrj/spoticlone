@@ -83,11 +83,7 @@ export const Player = ({ className }: IBaseProps) => {
           onToggle={handleTogglePlay}
           isPlaying={!isPaused}
         />
-        <PlayerSeekWrapper
-          position={songPosition}
-          duration={songDuration}
-          isPlaying={!isPaused}
-        />
+        <PlayerSeekWrapper />
       </div>
       <div className={styles.right}>
         <DeviceSelector
