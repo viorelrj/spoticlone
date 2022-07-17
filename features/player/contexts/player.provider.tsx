@@ -1,8 +1,8 @@
+import { TokenContext } from '@spc/contexts/token.context';
 import { IChildrenProps } from '@spc/types/base-props';
 import {
   useContext, useEffect, useState,
 } from 'react';
-import { TokenContext } from '../token.context';
 import { PlayerContext } from './player.context';
 
 const createPlayer = (token: string) => new Spotify.Player({
@@ -10,7 +10,7 @@ const createPlayer = (token: string) => new Spotify.Player({
   getOAuthToken: (cb) => { cb(token); },
 });
 
-export function PlayerContextProvider({ children }: IChildrenProps) {
+export const PlayerContextProvider = ({ children }: IChildrenProps) => {
   const [player, setPlayer] = useState<Spotify.Player | null>(null);
   const [sdkLoaded, setSdkLoaded] = useState(false);
   const { tokenConfig } = useContext(TokenContext);
@@ -33,4 +33,4 @@ export function PlayerContextProvider({ children }: IChildrenProps) {
       {children}
     </PlayerContext.Provider>
   );
-}
+};

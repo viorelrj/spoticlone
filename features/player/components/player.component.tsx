@@ -1,14 +1,14 @@
-import { DeviceSelector } from '@spc/componvents/device-selector/device-selector.component';
-import { PlayerContext } from '@spc/contexts/player/player.context';
+import { DeviceSelector } from 'features/player/components/device-selector.component';
+import { PlayerContext } from 'features/player/contexts/player.context';
 import { IBaseProps } from '@spc/types/base-props';
 import { SpotifyApiContext } from 'api/api.context';
 import { IDevice } from 'api/api.interface';
 import {
   useCallback, useContext, useEffect, useMemo, useState,
 } from 'react';
-import { PlayerControls } from '../../molecules/player-controls/player-controls.component';
+import { PlayerControls } from './player-controls.component';
 
-import { PlayerSeek } from '../../molecules/player-seek/player-seek.component';
+import { PlayerSeek } from './player-seek.component';
 import styles from './player.module.scss';
 
 export const Player = ({ className }: IBaseProps) => {

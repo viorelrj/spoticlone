@@ -1,12 +1,12 @@
 import { ChakraProvider } from '@chakra-ui/react';
-import { Player } from '@spc/componvents/organisms/player/player.component';
-import { PlayerContextProvider } from '@spc/contexts/player/player.provider';
+import { Player } from 'features/player/components/player.component';
 import { TokenContextProvider } from '@spc/contexts/token.context';
 import { SpotifyApiWrapper } from 'api/api.wrapper';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
 import { Provider } from 'react-redux';
+import { PlayerContextProvider } from 'features/player/contexts/player.provider';
 import { store } from '../store';
 import './_app.scss';
 
