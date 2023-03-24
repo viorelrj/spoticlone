@@ -1,5 +1,5 @@
-import { ChakraProvider } from '@chakra-ui/react';
-import { Player } from '@spc/componvents/organisms/player/player.component';
+import { ChakraProvider, createLocalStorageManager } from '@chakra-ui/react';
+// import { Player } from '@spc/componvents/organisms/player/player.component';
 
 import { TokenContextProvider } from '@spc/contexts/token.context';
 import { SpotifyApiWrapper } from 'api/api.wrapper';
@@ -9,10 +9,12 @@ import { Provider } from 'react-redux';
 import { store } from '../store';
 import './_app.scss';
 
+const manager = createLocalStorageManager('my-key');
+
 const CustomApp = ({ Component, pageProps }: AppProps) => (
   <Provider store={store}>
     <TokenContextProvider>
-      <ChakraProvider>
+      <ChakraProvider colorModeManager={manager}>
         <SpotifyApiWrapper>
 
           <Head>
@@ -21,7 +23,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => (
           <main className="main">
             <Component {...pageProps} />
           </main>
-          <Player className="player" />
+          {/* <Player className="player" /> */}
         </SpotifyApiWrapper>
       </ChakraProvider>
     </TokenContextProvider>
