@@ -11,7 +11,7 @@ export const TokenContext = createContext({
   setTokenConfig: (val: TokenResponseType | null) => {},
 });
 
-export function TokenContextProvider({ children }: IChildrenProps) {
+export var TokenContextProvider = ({ children }: IChildrenProps) => {
   const [tokenConfig, setTokenConfig] = useState<TokenResponseType|null>();
   const router = useRouter();
 
@@ -21,7 +21,10 @@ export function TokenContextProvider({ children }: IChildrenProps) {
   );
 
   useEffect(() => {
-    if (tokenConfig?.access_token) return;
+    if (tokenConfig?.access_token) {
+      window.token = tokenConfig.access_token;
+      return;
+    }
     if (routeTokenConfig?.access_token) {
       setTokenConfig(routeTokenConfig);
       return;
@@ -36,4 +39,4 @@ export function TokenContextProvider({ children }: IChildrenProps) {
       {children}
     </TokenContext.Provider>
   );
-}
+};
