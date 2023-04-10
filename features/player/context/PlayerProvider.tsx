@@ -22,8 +22,6 @@ export const PlayerContextProvider = ({ children }: IChildrenProps) => {
     const p = createPlayer(() => window.token);
     p.connect();
     setPlayer(p);
-
-    return undefined;
   }, [isScriptReady]);
 
   return (

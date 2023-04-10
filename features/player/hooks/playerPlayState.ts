@@ -13,7 +13,10 @@ export const usePlayerPlayState = () => {
 
   useEffect(() => {
     if (!player) return () => undefined;
-    const handlePlaying = (ev: Spotify.PlaybackState) => setIsPlaying(!ev.paused);
+    const handlePlaying = (ev: Spotify.PlaybackState) => {
+      if (!ev) return;
+      setIsPlaying(!ev.paused);
+    };
 
     player?.addListener('player_state_changed', handlePlaying);
     return () => player?.removeListener('player_state_changed', handlePlaying);

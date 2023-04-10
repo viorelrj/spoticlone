@@ -1,6 +1,7 @@
 import { IBaseProps } from '@spc/types/base-props';
 import { usePlayerPlayState } from '../../hooks/playerPlayState';
 import { PlayerControls } from '../player-controls/player-controls.component';
+import { usePlayerDevices } from '../../hooks/playerDevices';
 
 // <div className={classNames(styles.player, className)}>
 //   <div className={styles.left} />
@@ -22,10 +23,12 @@ import { PlayerControls } from '../player-controls/player-controls.component';
 //   </div>
 // </div>
 
-export const Player = ({ className }: IBaseProps) => {
+export const Player = () => {
   const {
     isPlaying, toggle, nextTrack, previousTrack,
   } = usePlayerPlayState();
+
+  const { activeDevice } = usePlayerDevices();
 
   return (
     <PlayerControls
