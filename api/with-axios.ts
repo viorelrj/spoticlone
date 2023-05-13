@@ -1,7 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
-import { selectToken } from 'features/auth/selectors';
 import { lensProp, compose, set } from 'ramda';
-import { store } from '../store';
 
 const authorizationLens = compose(
   lensProp<AxiosRequestConfig>('headers'),
@@ -12,7 +10,7 @@ let currentInstance: AxiosInstance;
 let currentToken: string;
 
 export const withAxios = () => {
-  const getToken = () => selectToken(store.getState());
+  const getToken = () => window.token || '';
 
   const preToken = getToken();
   if (!!preToken && preToken === currentToken) return currentInstance;

@@ -3,16 +3,10 @@ import { TokenResponseType } from '@spc/types/token';
 import { hashRouteEntries } from '@spc/utils/hash-route-entries/hash-route-entries';
 import { useRouter } from 'next/router';
 import {
-  createContext, useEffect, useMemo, useState,
+  useEffect, useMemo,
 } from 'react';
 
-export const TokenContext = createContext({
-  tokenConfig: {} as TokenResponseType | null,
-  setTokenConfig: (val: TokenResponseType | null) => {},
-});
-
 export var TokenContextProvider = ({ children }: IChildrenProps) => {
-  const [tokenConfig, setTokenConfig] = useState<TokenResponseType|null>();
   const router = useRouter();
 
   const routeTokenConfig = useMemo(
@@ -21,22 +15,15 @@ export var TokenContextProvider = ({ children }: IChildrenProps) => {
   );
 
   useEffect(() => {
-    if (tokenConfig?.access_token) {
-      window.token = tokenConfig.access_token;
-      return;
-    }
     if (routeTokenConfig?.access_token) {
-      setTokenConfig(routeTokenConfig);
-      return;
+      window.token = routeTokenConfig.access_token;
     }
-    router.push('/login');
-  }, [tokenConfig, routeTokenConfig]);
-
-  const provided = useMemo(() => ({ tokenConfig, setTokenConfig }), [tokenConfig, setTokenConfig]);
+    if (!window.token) router.push('/login');
+  }, [routeTokenConfig]);
 
   return (
-    <TokenContext.Provider value={provided}>
+    <>
       {children}
-    </TokenContext.Provider>
+    </>
   );
 };

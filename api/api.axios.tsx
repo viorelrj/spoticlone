@@ -1,21 +1,15 @@
 import axios, { AxiosError } from 'axios';
 
-const unauthorizedInterceptor = (callback?: () => any) => (error: AxiosError) => {
-  if (error.response?.status !== 401) return error;
-  // return callback?.();
+const tokenInterceptor = (config: any) => {
+  const token = window.token || '';
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
 };
 
-export const getSpotifyApiAxiosClient = (token?: string, refreshCallback?: () => any) => {
-  const tok = token || '';
+const client = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_SPOTIFY_API_URL,
+});
 
-  const client = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_SPOTIFY_API_URL,
-    headers: {
-      Authorization: `Bearer ${tok}`,
-    },
-  });
+client.interceptors.request.use(tokenInterceptor);
 
-  client.interceptors.response.use((res) => res, unauthorizedInterceptor(refreshCallback));
-
-  return client;
-};
+export default client;

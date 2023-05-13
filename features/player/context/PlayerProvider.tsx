@@ -16,12 +16,13 @@ export const PlayerContextProvider = ({ children }: IChildrenProps) => {
   const [player, setPlayer] = useState();
 
   useEffect(() => {
-    if (!isScriptReady) return undefined;
-
-    // todo: remove when implementing devices select
+    if (!isScriptReady) return () => undefined;
     const p = createPlayer(() => window.token);
-    p.connect();
-    setPlayer(p);
+    if (!p) return () => undefined;
+    p.connect().then(() => {
+      setPlayer(p);
+    });
+    return () => p.disconnect();
   }, [isScriptReady]);
 
   return (

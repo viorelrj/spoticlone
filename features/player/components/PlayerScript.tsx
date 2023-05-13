@@ -25,7 +25,7 @@ export const useSpotifyScriptReadiness = () => useSyncExternalStore(
 const PlayerScript = () => (
   <Script
     src="https://sdk.scdn.co/spotify-player.js"
-    strategy="beforeInteractive"
+    // strategy="beforeInteractive"
   />
 );
 

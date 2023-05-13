@@ -18,10 +18,10 @@ export const DeviceSelector = ({
       variant="ghost"
     />
     <MenuList>
-      {devices.map((device) => (
+      {Object.values(devices).map((device) => (
         <MenuItem
           key={device.id}
-          onClick={() => onChange?.(device.id)}
+          onClick={() => onChange(device.id)}
           icon={value === device.id ? <IoVolumeHighOutline /> : undefined}
         >
           {device.name}

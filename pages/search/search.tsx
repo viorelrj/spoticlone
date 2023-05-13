@@ -1,17 +1,16 @@
 import { SearchForm } from '@spc/componvents/molecules/search-form/search-form.component';
 import { ISearchFormState } from '@spc/componvents/molecules/search-form/search-form.type';
 import { SearchResults } from '@spc/componvents/molecules/search-results/search-results.component';
-import { SpotifyApiContext } from 'api/api.context';
+import API from 'api';
 import { ISearchResult } from 'api/api.interface';
 import { useDebounce } from 'hooks/debounce.hook';
 import {
-  useCallback, useContext, useEffect, useState,
+  useEffect, useState,
 } from 'react';
 import { search } from '../../api/api.client.v2';
 import styles from './search.module.scss';
 
 export const SearchPageContent = () => {
-  const { setPlaying } = useContext(SpotifyApiContext);
   const [searchState, setSearchState] = useState<ISearchFormState>();
   const debouncedSearchState = useDebounce(searchState, 120);
 
@@ -23,10 +22,6 @@ export const SearchPageContent = () => {
     search(debouncedSearchState.query, ['track']).then(({ data }) => setSearchResults(data));
   }, [debouncedSearchState]);
 
-  const onUriSelect = useCallback((uri: string) => {
-    setPlaying(uri);
-  }, [setPlaying]);
-
   return (
     <div className={styles.search}>
       <SearchForm
@@ -36,7 +31,7 @@ export const SearchPageContent = () => {
       <SearchResults
         className={styles.search_results}
         results={searchResults}
-        onSelect={onUriSelect}
+        onSelect={API.setPlaying}
       />
     </div>
   );

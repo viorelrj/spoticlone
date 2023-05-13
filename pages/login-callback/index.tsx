@@ -1,22 +1,12 @@
 import { useRouter } from 'next/router';
-import { useContext, useEffect } from 'react';
-import { hashRouteEntries } from '@spc/utils/hash-route-entries/hash-route-entries';
-import { TokenResponseType } from '@spc/types/token';
-import { TokenContext } from '@spc/contexts/token.context';
-import { useDispatch } from 'react-redux';
-import { setToken } from 'features/auth';
+import { useEffect } from 'react';
 
 export const LoginCallback = () => {
   const router = useRouter();
-  const { setTokenConfig } = useContext(TokenContext);
-  const dispatch = useDispatch();
 
   useEffect(() => {
-    const token = hashRouteEntries<TokenResponseType>(router.asPath);
-    setTokenConfig(token);
-    dispatch(setToken(token.access_token));
     router.push('/search');
-  }, [router, setTokenConfig, dispatch]);
+  }, [router]);
 
   return (
     <div>
