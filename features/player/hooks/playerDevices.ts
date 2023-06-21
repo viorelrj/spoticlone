@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import {
-  compose, path, defaultTo, propEq, find, prop,
+  compose, pathOr, propEq, find, prop,
 } from 'ramda';
-import API from 'api';
+import { getAvailableDevices, transferPlayback } from 'api';
 import { usePlayerContext } from '../context/PlayerContext';
 
 export const usePlayerDevices = () => {
@@ -12,12 +12,9 @@ export const usePlayerDevices = () => {
   const [allDevices, setAllDevices] = useState([]);
 
   const fetchDevices = () => {
-    API.getAvailableDevices()
-      .catch((err) => console.error(err))
-      .then(compose(
-        defaultTo([]),
-        path(['data', 'devices']),
-      ))
+    getAvailableDevices()
+      .catch(console.error)
+      .then(pathOr([], ['data', 'devices']))
       .then((devices) => {
         const activeId = compose(
           prop('id'),
@@ -36,7 +33,7 @@ export const usePlayerDevices = () => {
     player?.addListener('player_state_changed', fetchDevices);
   }, [player]);
 
-  const handleActiveDevice = (deviceId: string) => API.transferPlayback(deviceId, false);
+  const handleActiveDevice = (deviceId: string) => transferPlayback(deviceId, false);
 
   return {
     activeDevice,

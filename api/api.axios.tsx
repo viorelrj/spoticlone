@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 
 const tokenInterceptor = (config: any) => {
   const token = window.token || '';
