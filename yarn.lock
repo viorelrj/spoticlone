@@ -2353,6 +2353,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:4.29.15":
+  version: 4.29.15
+  resolution: "@tanstack/query-core@npm:4.29.15"
+  checksum: dc99d59a14acf47abdea9c80b038a1ad18531d309b98a91e89f7717f395f5b2ff54f73f6b6dcb3ac66f70f8b410827be5b06eb6f2bceff261287753829e606af
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^4.29.15":
+  version: 4.29.15
+  resolution: "@tanstack/react-query@npm:4.29.15"
+  dependencies:
+    "@tanstack/query-core": 4.29.15
+    use-sync-external-store: ^1.2.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-native: "*"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: de703806af4efd124f89f03f25d917c7f74329c1df82d2f293ff6fbd6bb259f656f9634203fcef5d2da3920c09dc35046aa9f1e84de3ed2ba84b44bb822b4784
+  languageName: node
+  linkType: hard
+
 "@testing-library/dom@npm:^8.0.0":
   version: 8.20.0
   resolution: "@testing-library/dom@npm:8.20.0"
@@ -7901,6 +7927,7 @@ __metadata:
     "@emotion/react": ^11
     "@emotion/styled": ^11
     "@reduxjs/toolkit": ^1.8.1
+    "@tanstack/react-query": ^4.29.15
     "@testing-library/jest-dom": ^5.16.1
     "@testing-library/react": ^12.1.2
     "@types/node": 17.0.10
@@ -8544,7 +8571,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-sync-external-store@npm:^1.0.0":
+"use-sync-external-store@npm:^1.0.0, use-sync-external-store@npm:^1.2.0":
   version: 1.2.0
   resolution: "use-sync-external-store@npm:1.2.0"
   peerDependencies:

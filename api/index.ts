@@ -1,4 +1,8 @@
+import {
+  pathOr, map, andThen, pipe, always,
+} from 'ramda';
 import axios from './api.axios';
+import { Device } from './entities';
 
 export const search = (query: string, type?: string[], limit?: number, offset?: number) => {
   const t = (type || ['album', 'artist', 'playlist', 'track', 'show', 'episode']).join(',');
@@ -12,9 +16,14 @@ export const search = (query: string, type?: string[], limit?: number, offset?: 
   });
 };
 
-export const getAvailableDevices = () => axios.get('/me/player/devices');
+export const getAvailableDevices = pipe(
+  always('/me/player/devices'),
+  axios.get,
+  andThen(pathOr([], ['data', 'devices'])),
+  andThen(map(Device)),
+);
 
-export const transferPlayback = (id: string, play: boolean) => axios.put('/me/player', {
+export const transferPlayback = ({ id, play = false }: {id: string, play?: boolean}) => axios.put('/me/player', {
   device_ids: [id],
   play,
 });

@@ -20,7 +20,7 @@
       "@spc/utils/*": ["./utils/*"],
       "@spc/types/*": ["./types/*"],
       "@spc/contexts/*": ["./contexts/*"],
-      "@spc/features/*": ["./features/*"]
+      "@spc/features/*": ["./features/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
