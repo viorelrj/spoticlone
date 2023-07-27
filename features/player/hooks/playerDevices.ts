@@ -10,12 +10,12 @@ export const usePlayerDevices = () => {
   const player = usePlayerContext();
 
   const [activeDevice, setActiveDevice] = useState<string>();
-  const [allDevices, setAllDevices] = useState([]);
+  const [allDevices, setAllDevices] = useState<IDevice[]>([]);
 
   const fetchDevices = () => {
     API.getAvailableDevices()
       .catch((err) => console.error(err))
-      .then(compose(
+      .then(compose<any, any, IDevice[]>(
         defaultTo([]),
         path(['data', 'devices']),
       ))
@@ -23,7 +23,7 @@ export const usePlayerDevices = () => {
         const activeId = compose(
           prop('id'),
           find(propEq('is_active', true)),
-        )(devices as IDevice[]);
+        )(devices);
 
         setActiveDevice(activeId);
         setAllDevices(devices);
