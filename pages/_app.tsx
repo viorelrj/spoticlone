@@ -15,7 +15,6 @@ const queryClient = new QueryClient();
 
 const CustomApp = ({ Component, pageProps }: AppProps) => (
   <Provider store={store}>
-    {/* <PlayerScript /> */}
     <TokenContextProvider>
       <ChakraProvider colorModeManager={manager}>
         <Head>

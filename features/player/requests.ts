@@ -2,6 +2,10 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { getAvailableDevices, transferPlayback } from 'api';
 import { DeviceType } from 'api/entities';
 
+type IContext = {
+  previousDevices: DeviceType[]
+}
+
 const useDevicesQuery = () => useQuery({
   queryKey: ['devices'],
   queryFn: getAvailableDevices,
@@ -34,7 +38,7 @@ const useDevicesMutation = () => {
       return { previousDevices };
     },
     onError: (err, req, context) => {
-      queryClient.setQueryData(['devices'], context?.previousDevices);
+      queryClient.setQueryData(['devices'], (context as IContext)?.previousDevices);
     },
   });
 };
