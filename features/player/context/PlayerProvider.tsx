@@ -13,7 +13,7 @@ const createPlayer = (getToken: () => string) => new Spotify.Player({
 
 export const PlayerContextProvider = ({ children }: IChildrenProps) => {
   const isScriptReady = useSpotifyScriptReadiness();
-  const [player, setPlayer] = useState();
+  const [player, setPlayer] = useState<Spotify.Player | null>(null);
 
   useEffect(() => {
     if (!isScriptReady) return () => undefined;

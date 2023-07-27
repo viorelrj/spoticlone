@@ -9,6 +9,10 @@ const authorizationLens = compose(
 let currentInstance: AxiosInstance;
 let currentToken: string;
 
+declare global {
+  interface Window { token: string; }
+}
+
 export const withAxios = () => {
   const getToken = () => window.token || '';
 

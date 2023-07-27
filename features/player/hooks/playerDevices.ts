@@ -3,6 +3,7 @@ import {
   compose, path, defaultTo, propEq, find, prop,
 } from 'ramda';
 import API from 'api';
+import { IDevice } from 'api/api.interface';
 import { usePlayerContext } from '../context/PlayerContext';
 
 export const usePlayerDevices = () => {
@@ -22,7 +23,7 @@ export const usePlayerDevices = () => {
         const activeId = compose(
           prop('id'),
           find(propEq('is_active', true)),
-        )(devices);
+        )(devices as IDevice[]);
 
         setActiveDevice(activeId);
         setAllDevices(devices);
