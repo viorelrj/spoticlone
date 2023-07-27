@@ -2353,18 +2353,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:4.29.15":
-  version: 4.29.15
-  resolution: "@tanstack/query-core@npm:4.29.15"
-  checksum: dc99d59a14acf47abdea9c80b038a1ad18531d309b98a91e89f7717f395f5b2ff54f73f6b6dcb3ac66f70f8b410827be5b06eb6f2bceff261287753829e606af
+"@tanstack/query-core@npm:4.32.0":
+  version: 4.32.0
+  resolution: "@tanstack/query-core@npm:4.32.0"
+  checksum: 7b3d965d634ff7e754d5f36fe2e4bd9a34548c1d7b13161a2f1a84c8eaafa835f8193e9494952ae20d330f3b56680a5ef516228b2d85b5bc5a34a49947223e58
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:^4.29.15":
-  version: 4.29.15
-  resolution: "@tanstack/react-query@npm:4.29.15"
+"@tanstack/react-query@npm:^4.32.0":
+  version: 4.32.0
+  resolution: "@tanstack/react-query@npm:4.32.0"
   dependencies:
-    "@tanstack/query-core": 4.29.15
+    "@tanstack/query-core": 4.32.0
     use-sync-external-store: ^1.2.0
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2375,7 +2375,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: de703806af4efd124f89f03f25d917c7f74329c1df82d2f293ff6fbd6bb259f656f9634203fcef5d2da3920c09dc35046aa9f1e84de3ed2ba84b44bb822b4784
+  checksum: fe9c9573a6132961d0437ca3b8d9e379553e0ddd1e884d75dd34c98d5e64e4305e45119d95aec4a7d56aae7bf09cb2792fd9e75da731f5c14db5e43b36732d48
   languageName: node
   linkType: hard
 
@@ -3771,6 +3771,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"decode-uri-component@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "decode-uri-component@npm:0.4.1"
+  checksum: 0473924860986fb6ca19ee65a2af13e08801b4f3660475b058500ea8479ed715c919884a026b6bf4296dbb640d3cea74fadf45490b2439152fc548271d0201ec
+  languageName: node
+  linkType: hard
+
 "dedent@npm:^0.7.0":
   version: 0.7.0
   resolution: "dedent@npm:0.7.0"
@@ -4623,6 +4630,13 @@ __metadata:
   dependencies:
     to-regex-range: ^5.0.1
   checksum: cc283f4e65b504259e64fd969bcf4def4eb08d85565e906b7d36516e87819db52029a76b6363d0f02d0d532f0033c9603b9e2d943d56ee3b0d4f7ad3328ff917
+  languageName: node
+  linkType: hard
+
+"filter-obj@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "filter-obj@npm:5.1.0"
+  checksum: ba7c24d9b2c0552ee87d268e07eca74483af61fb740545ffa809f7e9e5294de38cf163ecc55af0e8a40020af9a49512c32f4022de2a858b110420fc8bffa7c9c
   languageName: node
   linkType: hard
 
@@ -7257,6 +7271,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"query-string@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "query-string@npm:8.1.0"
+  dependencies:
+    decode-uri-component: ^0.4.1
+    filter-obj: ^5.1.0
+    split-on-first: ^3.0.0
+  checksum: 16fe49ab714f2b802bd31bc417876a38a82cd49bea01c0d6c37ca3439604c774752c8c66f9eda5ee33c268de2fc2a65e0e0e27aa97d8d98159af5c1fc838a017
+  languageName: node
+  linkType: hard
+
 "querystringify@npm:^2.1.1":
   version: 2.2.0
   resolution: "querystringify@npm:2.2.0"
@@ -7919,6 +7944,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"split-on-first@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "split-on-first@npm:3.0.0"
+  checksum: 75dc27ecbac65cfbeab9a3b90cf046307220192d3d7a30e46aa0f19571cc9b4802aac813f3de2cc9b16f2e46aae72f275659b5d2614bb5369c77724d739e5f73
+  languageName: node
+  linkType: hard
+
 "spoticlone@workspace:.":
   version: 0.0.0-use.local
   resolution: "spoticlone@workspace:."
@@ -7927,7 +7959,7 @@ __metadata:
     "@emotion/react": ^11
     "@emotion/styled": ^11
     "@reduxjs/toolkit": ^1.8.1
-    "@tanstack/react-query": ^4.29.15
+    "@tanstack/react-query": ^4.32.0
     "@testing-library/jest-dom": ^5.16.1
     "@testing-library/react": ^12.1.2
     "@types/node": 17.0.10
@@ -7950,6 +7982,7 @@ __metadata:
     husky: ^7.0.4
     jest: ^27.4.7
     next: ^13.2.4
+    query-string: ^8.1.0
     ramda: ^0.28.0
     react: ^18.2.0
     react-dom: ^18.2.0

@@ -5,7 +5,7 @@ import { ISearchResultsProps } from './search-results.type';
 import styles from './search-results.module.scss';
 
 export const SearchResults = ({ results, className, onSelect }: ISearchResultsProps) => {
-  const containerRef = useRef<HTMLElement>();
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     containerRef.current?.scrollTo({

@@ -5,5 +5,5 @@ export interface IDeviceSelectorProps extends IBaseProps {
   devices: DeviceType;
   value?: string;
   // eslint-disable-next-line no-unused-vars
-  onChange?: (device: string) => void;
+  onChange: (device: string) => void;
 }
