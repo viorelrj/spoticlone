@@ -1,9 +1,16 @@
-import axios, { AxiosError } from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 
-const tokenInterceptor = (config: any) => {
+const tokenInterceptor = (config: AxiosRequestConfig) => {
   const token = window.token || '';
-  if (token) config.headers.Authorization = `Bearer ${token}`;
-  return config;
+  if (!token) return config;
+
+  return {
+    ...config,
+    headers: {
+      ...config.headers,
+      Authorization: `Bearer ${token}`,
+    },
+  };
 };
 
 const client = axios.create({

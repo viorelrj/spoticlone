@@ -20,8 +20,9 @@
       "@spc/utils/*": ["./utils/*"],
       "@spc/types/*": ["./types/*"],
       "@spc/contexts/*": ["./contexts/*"],
-      "@spc/features/*": ["./features/*"]
-    }
+      "@spc/features/*": ["./features/*"],
+    },
+    "typeRoots": ["./node_modules/@types", "./types"],
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

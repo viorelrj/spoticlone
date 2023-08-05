@@ -1,4 +1,5 @@
 import { ChakraProvider, createLocalStorageManager } from '@chakra-ui/react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Player } from '@spc/features/player/components/player/player.component';
 
 import { TokenContextProvider } from '@spc/contexts/token.context';
@@ -10,20 +11,22 @@ import { store } from '../store';
 import './_app.scss';
 
 const manager = createLocalStorageManager('my-key');
+const queryClient = new QueryClient();
 
 const CustomApp = ({ Component, pageProps }: AppProps) => (
   <Provider store={store}>
-    {/* <PlayerScript /> */}
     <TokenContextProvider>
       <ChakraProvider colorModeManager={manager}>
         <Head>
           <title>Spoticlone</title>
         </Head>
         <PlayerContextProvider>
-          <main className="main">
-            <Component {...pageProps} />
-          </main>
-          <Player />
+          <QueryClientProvider client={queryClient}>
+            <main className="main">
+              <Component {...pageProps} />
+            </main>
+            <Player />
+          </QueryClientProvider>
         </PlayerContextProvider>
       </ChakraProvider>
     </TokenContextProvider>

@@ -1,47 +1,41 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import {
-  compose, path, defaultTo, propEq, find, prop,
+  pipe, propEq, find, prop,
 } from 'ramda';
-import API from 'api';
-import { IDevice } from 'api/api.interface';
+import { useDevicesMutation, useDevicesQuery } from '@spc/features/player/requests';
 import { usePlayerContext } from '../context/PlayerContext';
+
+const selectActiveDevice = pipe(
+  find(propEq('isActive', true)),
+  prop('id'),
+);
 
 export const usePlayerDevices = () => {
   const player = usePlayerContext();
+  const { data, refetch } = useDevicesQuery();
+  const { mutate } = useDevicesMutation();
 
-  const [activeDevice, setActiveDevice] = useState<string>();
-  const [allDevices, setAllDevices] = useState<IDevice[]>([]);
+  const activeDevice = selectActiveDevice(data || []);
+  const setDevice = (id: string) => mutate({ id });
 
-  const fetchDevices = () => {
-    API.getAvailableDevices()
-      .catch((err) => console.error(err))
-      .then(compose<any, any, IDevice[]>(
-        defaultTo([]),
-        path(['data', 'devices']),
-      ))
-      .then((devices) => {
-        const activeId = compose(
-          prop('id'),
-          find(propEq('is_active', true)),
-        )(devices);
+  useEffect(
+    () => {
+      const fetch = () => refetch();
 
-        setActiveDevice(activeId);
-        setAllDevices(devices);
-      });
-  };
-  useEffect(() => {
-    player?.addListener('ready', fetchDevices);
-  }, [player]);
+      player?.addListener('ready', () => fetch);
+      player?.addListener('player_state_changed', fetch);
 
-  useEffect(() => {
-    player?.addListener('player_state_changed', fetchDevices);
-  }, [player]);
-
-  const handleActiveDevice = (deviceId: string) => API.transferPlayback(deviceId, false);
+      return () => {
+        player?.removeListener('ready', fetch);
+        player?.removeListener('player_state_changed', fetch);
+      };
+    },
+    [player, refetch],
+  );
 
   return {
     activeDevice,
-    allDevices,
-    setDevice: handleActiveDevice,
+    allDevices: data,
+    setDevice,
   };
 };

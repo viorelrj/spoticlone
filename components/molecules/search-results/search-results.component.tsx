@@ -21,7 +21,7 @@ export const SearchResults = ({ results, className, onSelect }: ISearchResultsPr
           key={track.id}
           className={styles.result}
           type="button"
-          onClick={() => onSelect?.(track.uri)}
+          onClick={() => onSelect(track.uri)}
         >
           <Track
             key={track.id}
