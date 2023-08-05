@@ -18,7 +18,10 @@ export const SearchPageContent = () => {
   useEffect(() => {
     if (!debouncedSearchState?.query) return;
 
-    search(debouncedSearchState.query, ['track']).then(({ data }) => setSearchResults(data));
+    search({
+      q: debouncedSearchState.query,
+      type: ['track'],
+    }).then(({ data }) => setSearchResults(data));
   }, [debouncedSearchState]);
 
   return (

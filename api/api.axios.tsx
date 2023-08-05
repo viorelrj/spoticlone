@@ -1,9 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
-declare global {
-  interface Window { token: string }
-}
-
 const tokenInterceptor = (config: AxiosRequestConfig) => {
   const token = window.token || '';
   if (!token) return config;

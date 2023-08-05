@@ -1,20 +1,24 @@
 import {
-  pathOr, map, andThen, pipe, always,
+  pathOr, map, andThen, pipe, compose, always, defaultTo, join,
 } from 'ramda';
 import axios from './api.axios';
 import { Device } from './entities';
 
-export const search = (query: string, type?: string[], limit?: number, offset?: number) => {
-  const t = (type || ['album', 'artist', 'playlist', 'track', 'show', 'episode']).join(',');
-  return axios.get('/search', {
-    params: {
-      q: query,
-      type: t,
-      limit,
-      offset,
-    },
-  });
-};
+const searchTypes = ['album', 'artist', 'playlist', 'track', 'show', 'episode'];
+
+export type SearchParams = {
+  q: string,
+  type?: string[],
+  limit?: number,
+  offset?: number
+}
+
+export const search = (searchParams: SearchParams) => axios.get('/search', {
+  params: {
+    ...searchParams,
+    type: compose(join(','), defaultTo(searchTypes))(searchParams.type),
+  },
+});
 
 export const getAvailableDevices = pipe(
   always('/me/player/devices'),
@@ -23,11 +27,18 @@ export const getAvailableDevices = pipe(
   andThen(map(Device)),
 );
 
-export const transferPlayback = ({ id, play = false }: {id: string, play?: boolean}) => axios.put('/me/player', {
+export type transferPlaybackParams = {
+  id: string,
+  play?: boolean
+}
+
+export const transferPlayback = ({ id, play = false }: transferPlaybackParams) => axios.put('/me/player', {
   device_ids: [id],
   play,
 });
 
-export const setPlaying = (contextUri: string) => axios.put('/me/player/play', {
+export type setPlayingParams = string
+
+export const setPlaying = (contextUri: setPlayingParams) => axios.put('/me/player/play', {
   uris: [contextUri],
 });

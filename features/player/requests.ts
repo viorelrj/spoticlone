@@ -2,7 +2,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { getAvailableDevices, transferPlayback } from 'api';
 import { DeviceType } from 'api/entities';
 
-type IContext = {
+type ResponseContext = {
   previousDevices: DeviceType[]
 }
 
@@ -19,7 +19,7 @@ const useDevicesMutation = () => {
 
   return useMutation({
     mutationFn: transferPlayback,
-    onMutate: async ({ id }) => {
+    onMutate: async ({ id }): Promise<ResponseContext> => {
       await queryClient.cancelQueries({ queryKey: ['devices'] });
 
       const previousDevices = queryClient.getQueryData(['devices']) as DeviceType[];
@@ -38,7 +38,7 @@ const useDevicesMutation = () => {
       return { previousDevices };
     },
     onError: (err, req, context) => {
-      queryClient.setQueryData(['devices'], (context as IContext)?.previousDevices);
+      queryClient.setQueryData(['devices'], (context as ResponseContext).previousDevices);
     },
   });
 };

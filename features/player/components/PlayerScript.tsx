@@ -1,10 +1,6 @@
 import Script from 'next/script';
 import { useSyncExternalStore } from 'react';
 
-declare global {
-  interface Window { isSpotifyScriptReady: boolean; }
-}
-
 const subscribe = (onStoreChange: () => void) => {
   window.onSpotifyWebPlaybackSDKReady = () => {
     window.isSpotifyScriptReady = true;
