@@ -1,22 +1,16 @@
-import axios, { AxiosRequestConfig } from 'axios';
-
-const tokenInterceptor = (config: AxiosRequestConfig) => {
-  const token = window.token || '';
-  if (!token) return config;
-
-  return {
-    ...config,
-    headers: {
-      ...config.headers,
-      Authorization: `Bearer ${token}`,
-    },
-  };
-};
+import axios from 'axios';
 
 const client = axios.create({
   baseURL: process.env.NEXT_PUBLIC_SPOTIFY_API_URL,
 });
 
-client.interceptors.request.use(tokenInterceptor);
+client.interceptors.request.use(config => {
+  const token = window.token || '';
+  if (!token) return config;
+
+  config.headers.setAuthorization(`Bearer ${token}`);
+
+  return config;
+});
 
 export default client;

@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { propEq } from 'ramda';
 import { getAvailableDevices, transferPlayback } from 'api';
 import { DeviceType } from 'api/entities';
-import { propEq } from 'ramda';
 
 type ResponseContext = {
   cachedDevices: DeviceType[]
@@ -22,7 +22,7 @@ const useDevicesMutation = () => {
     mutationFn: transferPlayback,
     onMutate: async ({ id }): Promise<ResponseContext> => {
       const cachedDevices = queryClient.getQueryData(['devices']) as DeviceType[];
-      const newDevice = cachedDevices.find(propEq('id', id));
+      const newDevice = cachedDevices.find(propEq(id, 'id'));
 
       if (!newDevice) return { cachedDevices };
 

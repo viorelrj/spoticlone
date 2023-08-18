@@ -1,14 +1,14 @@
-import { useEffect, useCallback, useState } from 'react';
+import { useEffect, useCallback } from 'react';
 import {
   pipe, propEq, find, prop,
 } from 'ramda';
-import { useDevicesMutation, useDevicesQuery } from '@spc/features/player/requests';
 import { useQueryClient } from '@tanstack/react-query';
+import { useDevicesMutation, useDevicesQuery } from '@spc/features/player/requests';
 import debounce from 'utils/debounce';
 import { usePlayerContext } from '../context/PlayerContext';
 
 const selectActiveDevice = pipe(
-  find(propEq('isActive', true)),
+  find(propEq(true, 'isActive', )),
   prop('id'),
 );
 
