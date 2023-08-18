@@ -3,6 +3,7 @@
     "next",
     "airbnb",
     "plugin:jest/recommended",
+    "prettier",
     "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser",
