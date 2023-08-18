@@ -1,12 +1,12 @@
+import {
+  useEffect, useState,
+} from 'react';
 import { SearchForm } from '@spc/componvents/molecules/search-form/search-form.component';
 import { ISearchFormState } from '@spc/componvents/molecules/search-form/search-form.type';
 import { SearchResults } from '@spc/componvents/molecules/search-results/search-results.component';
 import { setPlaying, search } from 'api';
 import { ISearchResult } from 'api/api.interface';
 import { useDebounce } from 'hooks/debounce.hook';
-import {
-  useEffect, useState,
-} from 'react';
 import styles from './search.module.scss';
 
 export const SearchPageContent = () => {
@@ -16,7 +16,10 @@ export const SearchPageContent = () => {
   const [searchResults, setSearchResults] = useState<ISearchResult>();
 
   useEffect(() => {
-    if (!debouncedSearchState?.query) return;
+    if (!debouncedSearchState?.query) {
+      setSearchResults({});
+      return;
+    }
 
     search({
       q: debouncedSearchState.query,
@@ -28,7 +31,7 @@ export const SearchPageContent = () => {
     <div className={styles.search}>
       <SearchForm
         className={styles.search_form}
-        onChange={(val) => setSearchState(val)}
+        onChange={setSearchState}
       />
       <SearchResults
         className={styles.search_results}

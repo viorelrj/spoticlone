@@ -7,6 +7,10 @@
 .search_form {
   max-width: 20em;
   margin-bottom: 1em;
+
+  @media screen and (max-width: 50rem) {
+    max-width: 100%;
+  }
 }
 
 .search_results {

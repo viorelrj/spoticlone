@@ -7,5 +7,5 @@ export interface ISearchFormState {
 export interface ISearchFormProps extends IBaseProps {
   initialState?: ISearchFormState;
   // eslint-disable-next-line no-unused-vars
-  onChange?: (state: ISearchFormState) => void;
+  onChange: (state: ISearchFormState) => void;
 }

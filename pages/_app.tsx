@@ -1,12 +1,12 @@
 import { ChakraProvider, createLocalStorageManager } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Player } from '@spc/features/player/components/player/player.component';
-
-import { TokenContextProvider } from '@spc/contexts/token.context';
+import { Provider } from 'react-redux';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { Provider } from 'react-redux';
+
+import { TokenContextProvider } from '@spc/contexts/token.context';
 import { PlayerContextProvider } from '@spc/features/player/context/PlayerProvider';
+import { Player } from '@spc/features/player/components/player/player.component';
 import { store } from '../store';
 import './_app.scss';
 

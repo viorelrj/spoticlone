@@ -9,7 +9,7 @@ import { ISearchFormProps, ISearchFormState } from './search-form.type';
 
 export const SearchForm = ({ initialState, onChange, className }: ISearchFormProps) => {
   const {
-    register, control, reset, setFocus,
+    register, control, setFocus, setValue,
   } = useForm<ISearchFormState>({
     defaultValues: initialState,
   });
@@ -20,29 +20,27 @@ export const SearchForm = ({ initialState, onChange, className }: ISearchFormPro
 
   const clearForm = () => {
     setFocus?.('query');
-    reset();
+    setValue('query', '');
   };
 
   useEffect(() => {
-    onChange?.(searchValue || '');
+    onChange(searchValue || '');
   }, [searchValue, onChange]);
 
   return (
-    <form className={className}>
-      <InputGroup>
-        <InputLeftElement pointerEvents="none">
-          <IoSearchOutline color="gray.300" />
-        </InputLeftElement>
-        <Input
-          autoComplete="off"
-          {...register('query')}
-          placeholder="Search a song..."
-        />
-        {
-          searchValue.query
-          && <InputRightElement variant="ghost" isRound onClick={clearForm} as={IconButton} icon={<IoCloseOutline />} />
-        }
-      </InputGroup>
-    </form>
+    <InputGroup className={className}>
+      <InputLeftElement pointerEvents="none">
+        <IoSearchOutline color="gray.300" />
+      </InputLeftElement>
+      <Input
+        autoComplete="off"
+        {...register('query')}
+        placeholder="Search a song..."
+      />
+      {
+        searchValue.query
+        && <InputRightElement variant="ghost" isRound onClick={clearForm} as={IconButton} icon={<IoCloseOutline />} />
+      }
+    </InputGroup>
   );
 };
