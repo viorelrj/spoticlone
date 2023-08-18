@@ -31,7 +31,6 @@ export interface ISearchResultItem {
   previous: string;
   total: number;
 }
-
 export type ISearchResult = {
   [key in ISearchResultType]: ISearchResultItem;
-}
+} | Record<string, never>
