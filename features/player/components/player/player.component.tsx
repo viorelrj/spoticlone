@@ -14,6 +14,7 @@ export const Player = () => {
     previousTrack,
     playhead,
     duration,
+    seek,
   } = usePlayerPlayState();
 
   const {
@@ -32,7 +33,7 @@ export const Player = () => {
           onToggle={toggle}
           isPlaying={isPlaying}
         />
-        <PlayerSeek position={playhead} isPlaying={isPlaying} duration={duration} />
+        <PlayerSeek position={playhead} onSeek={seek} isPlaying={isPlaying} duration={duration} />
       </div>
       <div className={styles.right}>
         <DeviceSelector

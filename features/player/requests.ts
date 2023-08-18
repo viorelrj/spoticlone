@@ -1,9 +1,10 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { getAvailableDevices, transferPlayback } from 'api';
 import { DeviceType } from 'api/entities';
+import { propEq } from 'ramda';
 
 type ResponseContext = {
-  previousDevices: DeviceType[]
+  cachedDevices: DeviceType[]
 }
 
 const useDevicesQuery = () => useQuery({
@@ -11,7 +12,7 @@ const useDevicesQuery = () => useQuery({
   queryFn: getAvailableDevices,
   placeholderData: [],
   initialData: [],
-  staleTime: 0,
+  staleTime: 3000,
 });
 
 const useDevicesMutation = () => {
@@ -20,25 +21,24 @@ const useDevicesMutation = () => {
   return useMutation({
     mutationFn: transferPlayback,
     onMutate: async ({ id }): Promise<ResponseContext> => {
+      const cachedDevices = queryClient.getQueryData(['devices']) as DeviceType[];
+      const newDevice = cachedDevices.find(propEq('id', id));
+
+      if (!newDevice) return { cachedDevices };
+
       await queryClient.cancelQueries({ queryKey: ['devices'] });
 
-      const previousDevices = queryClient.getQueryData(['devices']) as DeviceType[];
-
-      const newDevices = previousDevices.map((device) => {
-        if (device.id !== id) return device;
-
-        return {
-          ...device,
-          isActive: true,
-        };
-      });
+      const newDevices = cachedDevices.map((device) => ({
+        ...device,
+        isActive: device.id === id,
+      }));
 
       queryClient.setQueryData(['devices'], () => newDevices);
 
-      return { previousDevices };
+      return { cachedDevices };
     },
     onError: (err, req, context) => {
-      queryClient.setQueryData(['devices'], (context as ResponseContext).previousDevices);
+      queryClient.setQueryData(['devices'], (context as ResponseContext).cachedDevices);
     },
   });
 };

@@ -28,21 +28,19 @@ export const SearchForm = ({ initialState, onChange, className }: ISearchFormPro
   }, [searchValue, onChange]);
 
   return (
-    <form className={className}>
-      <InputGroup>
-        <InputLeftElement pointerEvents="none">
-          <IoSearchOutline color="gray.300" />
-        </InputLeftElement>
-        <Input
-          autoComplete="off"
-          {...register('query')}
-          placeholder="Search a song..."
-        />
-        {
-          searchValue.query
-          && <InputRightElement variant="ghost" isRound onClick={clearForm} as={IconButton} icon={<IoCloseOutline />} />
-        }
-      </InputGroup>
-    </form>
+    <InputGroup className={className}>
+      <InputLeftElement pointerEvents="none">
+        <IoSearchOutline color="gray.300" />
+      </InputLeftElement>
+      <Input
+        autoComplete="off"
+        {...register('query')}
+        placeholder="Search a song..."
+      />
+      {
+        searchValue.query
+        && <InputRightElement variant="ghost" isRound onClick={clearForm} as={IconButton} icon={<IoCloseOutline />} />
+      }
+    </InputGroup>
   );
 };

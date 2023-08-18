@@ -16,7 +16,10 @@ export const SearchPageContent = () => {
   const [searchResults, setSearchResults] = useState<ISearchResult>();
 
   useEffect(() => {
-    if (!debouncedSearchState?.query) return;
+    if (!debouncedSearchState?.query) {
+      setSearchResults({});
+      return;
+    }
 
     search({
       q: debouncedSearchState.query,

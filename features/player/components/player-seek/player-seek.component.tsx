@@ -23,11 +23,6 @@ export const PlayerSeek = ({
     setStatePosition(position);
   }, [position]);
 
-  const onChange = (newVal: number) => {
-    if (!onSeek) return;
-    onSeek(newVal);
-  };
-
   return (
     <Slider
       focusThumbOnChange={false}
@@ -35,7 +30,7 @@ export const PlayerSeek = ({
       value={statePosition}
       min={0}
       max={duration}
-      onChange={onChange}
+      onChange={onSeek}
       step={5000}
       className={className}
     >
