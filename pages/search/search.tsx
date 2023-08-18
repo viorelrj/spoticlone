@@ -31,7 +31,7 @@ export const SearchPageContent = () => {
     <div className={styles.search}>
       <SearchForm
         className={styles.search_form}
-        onChange={(val) => setSearchState(val)}
+        onChange={setSearchState}
       />
       <SearchResults
         className={styles.search_results}

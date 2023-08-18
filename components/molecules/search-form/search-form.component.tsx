@@ -9,7 +9,7 @@ import { ISearchFormProps, ISearchFormState } from './search-form.type';
 
 export const SearchForm = ({ initialState, onChange, className }: ISearchFormProps) => {
   const {
-    register, control, reset, setFocus,
+    register, control, setFocus, setValue,
   } = useForm<ISearchFormState>({
     defaultValues: initialState,
   });
@@ -20,11 +20,11 @@ export const SearchForm = ({ initialState, onChange, className }: ISearchFormPro
 
   const clearForm = () => {
     setFocus?.('query');
-    reset();
+    setValue('query', '');
   };
 
   useEffect(() => {
-    onChange?.(searchValue || '');
+    onChange(searchValue || '');
   }, [searchValue, onChange]);
 
   return (
