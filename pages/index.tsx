@@ -1,7 +1,7 @@
+import { SearchPageContent } from 'features/search/components/search';
+
 export const Index = () => (
-  <h1>
-    We are logging you in...
-  </h1>
+  <SearchPageContent />
 );
 
 export default Index;
