@@ -12,14 +12,23 @@ type Token = {
   scope: string;
 }
 
+type Error = {
+  error: string
+}
+
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Token>,
+  res: NextApiResponse<Token|Error>,
 ) {
   const refreshToken = req.cookies.sel_rt;
-
-  if (!refreshToken) res.redirect('/api/login');
-
+  
+  if (!refreshToken) {
+    res.status(401).json({
+      error: "nope"
+    })
+    return;
+  }
+  
   const options = {
     method: 'POST',
     headers: {
