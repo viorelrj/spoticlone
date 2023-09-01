@@ -1,25 +1,18 @@
 import {serialize} from 'cookie';
 import querystring from 'query-string';
 import { NextApiRequest, NextApiResponse } from "next";
+import { DEFAULT_COOKIE_PARAMS, cookieRefreshToken } from 'consts/cookies';
 
 const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID as string;
 const clientSecret = process.env.NEXT_PUBLIC_CLIENT_SECRET as string;
-const redirecUri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI as string;
+const baseUri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI as string;
 
 export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const {code, state} = req.query;
-
-  const cookieState = req.cookies.sel_state as string;
-
-  if (state !== cookieState) {
-    res.status(401).json({
-      error: 'hehe'
-    });
-    return;
-  }
+  const {code} = req.query;
+  // const cookieState = req.cookies[cookieTokenState] as string;
 
   if (!code) {
     res.redirect('/');
@@ -34,7 +27,7 @@ export default async function handle(
     },
     body: querystring.stringify({
       code,
-      redirect_uri: redirecUri,
+      redirect_uri: `${baseUri}/api/login-callback`,
       grant_type: 'authorization_code'
     })
   };
@@ -42,12 +35,7 @@ export default async function handle(
   const authResponse = await fetch('https://accounts.spotify.com/api/token', authOptions);
   const token = await authResponse.json();
 
-  const cookie = serialize('sel_rt', token.refresh_token, {
-    httpOnly: true,
-    // sameSite: 'lax',
-    sameSite: 'none',
-    // secure: true
-  })
+  const cookie = serialize(cookieRefreshToken, token.refresh_token, DEFAULT_COOKIE_PARAMS)
 
   res.setHeader('Set-Cookie', cookie);
   res.redirect('/');

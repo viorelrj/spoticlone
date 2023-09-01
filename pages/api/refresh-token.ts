@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 import querystring from 'query-string';
+import { cookieRefreshToken } from 'consts/cookies';
 
 const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
 const clientSecret = process.env.NEXT_PUBLIC_CLIENT_SECRET as string;
@@ -20,7 +21,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Token|Error>,
 ) {
-  const refreshToken = req.cookies.sel_rt;
+  const refreshToken = req.cookies[cookieRefreshToken];
   
   if (!refreshToken) {
     res.status(401).json({
