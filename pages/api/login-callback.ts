@@ -45,7 +45,7 @@ export default async function handle(
   const cookie = serialize('sel_rt', token.refresh_token, {
     httpOnly: true,
     sameSite: 'lax',
-    secure: true
+    // secure: true
   })
 
   res.setHeader('Set-Cookie', cookie);

@@ -32,7 +32,7 @@ export default function handler(
   const cookie = serialize('sel_state', state, {
     httpOnly: true,
     sameSite: 'lax',
-    secure: true
+    // secure: true
   })
 
   res.setHeader('Set-Cookie', cookie);
