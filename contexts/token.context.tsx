@@ -1,15 +1,13 @@
-import { IChildrenProps } from '@spc/types/base-props';
-import { useRouter } from 'next/router';
-import {
-  useEffect, useMemo,
-} from 'react';
-import queryString from 'query-string';
+import { IChildrenProps } from "@spc/types/base-props";
+import { useRouter } from "next/router";
+import { useEffect, useMemo } from "react";
+import queryString from "query-string";
 
 export const TokenContextProvider = ({ children }: IChildrenProps) => {
   const router = useRouter();
 
   const routeTokenConfig = useMemo(
-    () => queryString.parse(router.asPath.split('#')[1]),
+    () => queryString.parse(router.asPath.split("#")[1]),
     [router],
   );
 
@@ -17,12 +15,9 @@ export const TokenContextProvider = ({ children }: IChildrenProps) => {
     if (routeTokenConfig?.access_token) {
       window.token = routeTokenConfig.access_token as string;
     }
-    if (!window.token) router.push('/login');
+    if (!window.token) router.push("/login");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router]);
 
-  return (
-    <>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 };

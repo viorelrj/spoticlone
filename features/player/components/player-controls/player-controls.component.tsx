@@ -10,25 +10,28 @@ export const PlayerControls = ({
 }: IPlayerControlsProps) => (
   <div className={`${styles.controls} ${className}`}>
     <IconButton
-      isRound
+      borderRadius="full"
       variant="solid"
       onClick={onPrevious}
       aria-label="Play previous Track"
-      icon={<ImPrevious />}
-    />
+    >
+      <ImPrevious />
+    </IconButton>
     <IconButton
-      isRound
+      borderRadius="full"
       variant="solid"
       onClick={onToggle}
       aria-label="Toggle Play"
-      icon={isPlaying ? <ImPause /> : <ImPlay2 />}
-    />
+    >
+      {isPlaying ? <ImPause /> : <ImPlay2 />}
+    </IconButton>
     <IconButton
-      isRound
+      borderRadius="full"
       variant="solid"
       onClick={onNext}
       aria-label="Play next Track"
-      icon={<ImNext />}
-    />
+    >
+      <ImNext />
+    </IconButton>
   </div>
 );

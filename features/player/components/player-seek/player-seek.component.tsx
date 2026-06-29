@@ -1,14 +1,14 @@
-import {
-  Slider, SliderFilledTrack, SliderThumb, SliderTrack,
-} from '@chakra-ui/react';
-import { useHeartbeat } from 'hooks/heartbeat.hook';
-import {
-  useEffect, useState,
-} from 'react';
-import { IPlayerSeekProps } from './player-seek.type';
+import { Slider } from "@chakra-ui/react";
+import { useHeartbeat } from "hooks/heartbeat.hook";
+import { useEffect, useState } from "react";
+import { IPlayerSeekProps } from "./player-seek.type";
 
 export const PlayerSeek = ({
-  position, duration, isPlaying, onSeek, className,
+  position,
+  duration,
+  isPlaying,
+  onSeek,
+  className,
 }: IPlayerSeekProps) => {
   const stepSize = 1000;
 
@@ -16,28 +16,32 @@ export const PlayerSeek = ({
   const heartBeat = useHeartbeat(1000, isPlaying);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setStatePosition((pos) => pos + stepSize);
   }, [heartBeat]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setStatePosition(position);
   }, [position]);
 
   return (
-    <Slider
-      focusThumbOnChange={false}
-      aria-label="Seek in song"
-      value={statePosition}
+    <Slider.Root
+      value={[statePosition]}
       min={0}
       max={duration}
-      onChange={onSeek}
+      onValueChange={(details) => onSeek?.(details.value[0])}
       step={5000}
       className={className}
     >
-      <SliderTrack>
-        <SliderFilledTrack />
-      </SliderTrack>
-      <SliderThumb />
-    </Slider>
+      <Slider.Control>
+        <Slider.Track>
+          <Slider.Range />
+        </Slider.Track>
+        <Slider.Thumb index={0}>
+          <Slider.HiddenInput />
+        </Slider.Thumb>
+      </Slider.Control>
+    </Slider.Root>
   );
 };
