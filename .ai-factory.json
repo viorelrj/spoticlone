@@ -1,0 +1,439 @@
+{
+  "version": "2.21.0",
+  "agents": [
+    {
+      "id": "claude",
+      "skillsDir": ".claude/skills",
+      "installedSkills": [
+        "aif",
+        "aif-architecture",
+        "aif-archive",
+        "aif-best-practices",
+        "aif-build-automation",
+        "aif-ci",
+        "aif-commit",
+        "aif-distillation",
+        "aif-dockerize",
+        "aif-docs",
+        "aif-evolve",
+        "aif-explore",
+        "aif-fix",
+        "aif-grounded",
+        "aif-implement",
+        "aif-improve",
+        "aif-loop",
+        "aif-plan",
+        "aif-plan-overview",
+        "aif-qa",
+        "aif-qa-check",
+        "aif-reference",
+        "aif-review",
+        "aif-roadmap",
+        "aif-roadmap-next",
+        "aif-rules",
+        "aif-rules-check",
+        "aif-security-checklist",
+        "aif-skill-generator",
+        "aif-skills-audit",
+        "aif-transfer",
+        "aif-verify",
+        "aif-warmup"
+      ],
+      "agentsDir": ".claude/agents",
+      "installedAgentFiles": [
+        "best-practices-sidecar.md",
+        "commit-preparer.md",
+        "docs-auditor.md",
+        "implement-coordinator.md",
+        "implement-worker.md",
+        "loop-critic.md",
+        "loop-evaluator.md",
+        "loop-invariant-prep.md",
+        "loop-orchestrator.md",
+        "loop-perf-prep.md",
+        "loop-planner.md",
+        "loop-producer.md",
+        "loop-refiner.md",
+        "loop-test-prep.md",
+        "plan-coordinator.md",
+        "plan-polisher.md",
+        "review-sidecar.md",
+        "review-validator.md",
+        "rules-sidecar.md",
+        "security-sidecar.md"
+      ],
+      "agentFileSources": {
+        "best-practices-sidecar.md": {
+          "kind": "bundled",
+          "sourcePath": "best-practices-sidecar.md"
+        },
+        "commit-preparer.md": {
+          "kind": "bundled",
+          "sourcePath": "commit-preparer.md"
+        },
+        "docs-auditor.md": {
+          "kind": "bundled",
+          "sourcePath": "docs-auditor.md"
+        },
+        "implement-coordinator.md": {
+          "kind": "bundled",
+          "sourcePath": "implement-coordinator.md"
+        },
+        "implement-worker.md": {
+          "kind": "bundled",
+          "sourcePath": "implement-worker.md"
+        },
+        "loop-critic.md": {
+          "kind": "bundled",
+          "sourcePath": "loop-critic.md"
+        },
+        "loop-evaluator.md": {
+          "kind": "bundled",
+          "sourcePath": "loop-evaluator.md"
+        },
+        "loop-invariant-prep.md": {
+          "kind": "bundled",
+          "sourcePath": "loop-invariant-prep.md"
+        },
+        "loop-orchestrator.md": {
+          "kind": "bundled",
+          "sourcePath": "loop-orchestrator.md"
+        },
+        "loop-perf-prep.md": {
+          "kind": "bundled",
+          "sourcePath": "loop-perf-prep.md"
+        },
+        "loop-planner.md": {
+          "kind": "bundled",
+          "sourcePath": "loop-planner.md"
+        },
+        "loop-producer.md": {
+          "kind": "bundled",
+          "sourcePath": "loop-producer.md"
+        },
+        "loop-refiner.md": {
+          "kind": "bundled",
+          "sourcePath": "loop-refiner.md"
+        },
+        "loop-test-prep.md": {
+          "kind": "bundled",
+          "sourcePath": "loop-test-prep.md"
+        },
+        "plan-coordinator.md": {
+          "kind": "bundled",
+          "sourcePath": "plan-coordinator.md"
+        },
+        "plan-polisher.md": {
+          "kind": "bundled",
+          "sourcePath": "plan-polisher.md"
+        },
+        "review-sidecar.md": {
+          "kind": "bundled",
+          "sourcePath": "review-sidecar.md"
+        },
+        "review-validator.md": {
+          "kind": "bundled",
+          "sourcePath": "review-validator.md"
+        },
+        "rules-sidecar.md": {
+          "kind": "bundled",
+          "sourcePath": "rules-sidecar.md"
+        },
+        "security-sidecar.md": {
+          "kind": "bundled",
+          "sourcePath": "security-sidecar.md"
+        }
+      },
+      "mcp": {
+        "github": false,
+        "filesystem": false,
+        "postgres": false,
+        "chromeDevtools": false,
+        "playwright": false
+      },
+      "managedSkills": {
+        "aif": {
+          "sourceHash": "836023f9c4e302a63c4e5439db5a4ee8460da99c37f637272b3c77a9c774ce13",
+          "installedHash": "a8ecd193d9ef67ac791cf5d3714eb447da6ca7077c5929531916ea2e2a1e34a5",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "bdd70903a4476c85c0288364f9a9c347c938fa1ddfcdc15986056469b7028451"
+        },
+        "aif-architecture": {
+          "sourceHash": "ec55b533e3a34c77e7719ba6cd8d81c6a03c1cfd6738ccee049e5580a840e0e6",
+          "installedHash": "a97dbaacb70ac6c2aa0bde13a3d39265b08a6ce47355410d9c212b78fb04e2ac",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "ec55b533e3a34c77e7719ba6cd8d81c6a03c1cfd6738ccee049e5580a840e0e6"
+        },
+        "aif-archive": {
+          "sourceHash": "94ff01a16d85a1e000126991b1720c7eff047a666d4a9fa114d22af8e8c4ded5",
+          "installedHash": "e31bf62c9f6631a1555fefa2feb66ad1bb279e684702c684accfb6fc270fe38f",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "94ff01a16d85a1e000126991b1720c7eff047a666d4a9fa114d22af8e8c4ded5"
+        },
+        "aif-best-practices": {
+          "sourceHash": "b305ffc1663882c0596e43efa28d11962ce4b4d6c1c222bc57ac4c532cce5066",
+          "installedHash": "37ff3f683b05bf602af3ef044a1cad802d8663e8e76555159d6abdba25330415",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "b305ffc1663882c0596e43efa28d11962ce4b4d6c1c222bc57ac4c532cce5066"
+        },
+        "aif-build-automation": {
+          "sourceHash": "dcf6e3db65ceea6ef162d8993419a7c5bb764a0694fee65e2fcf36cf583edb0f",
+          "installedHash": "ca75ca1a23b10dd9a3bbffdc4468b4dd368a1c7c727c6550610f02737398a7a2",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "dcf6e3db65ceea6ef162d8993419a7c5bb764a0694fee65e2fcf36cf583edb0f"
+        },
+        "aif-ci": {
+          "sourceHash": "ccd51af5d9d35486b9fc7bfdf32ca3c0e89b81f4d5ca487f06ea0eb770cdb298",
+          "installedHash": "9522cddbe3194b6080100a16a1bf87de0285c01bd5a53b3096fb7d20ba3624d6",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "ccd51af5d9d35486b9fc7bfdf32ca3c0e89b81f4d5ca487f06ea0eb770cdb298"
+        },
+        "aif-commit": {
+          "sourceHash": "2c8adf22e3aec0cffef615022a3c2fc7265befc8e20acc54f6074f30926c61f2",
+          "installedHash": "fc98247a55019d1be9122ce8afa4c0da5387fb8053f78396343a6dca8d33d9cc",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "2c8adf22e3aec0cffef615022a3c2fc7265befc8e20acc54f6074f30926c61f2"
+        },
+        "aif-distillation": {
+          "sourceHash": "bf08fb5ad9428bcad9a9b29bd38a605cac3eb7faffd5405e2c639f8682016c73",
+          "installedHash": "101e3f00d23f73f202b9b76d148bfd1407d10f0577233a30008e5b2fcbbcbeb1",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "24eb3e1569bf2e9eb607cac85d8e73fb9247a01510f0bf9003f6933430409637"
+        },
+        "aif-dockerize": {
+          "sourceHash": "100a4d359b322e5f908bb4ebe7757981914c34df9cbc9e9b807d1b12f130cc23",
+          "installedHash": "1019e12a946813469640ea66a15a89263ee325c9f52edf4760cd4df5304fb822",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "100a4d359b322e5f908bb4ebe7757981914c34df9cbc9e9b807d1b12f130cc23"
+        },
+        "aif-docs": {
+          "sourceHash": "a69b5512770d067fe4645433706be905346805524a59e7cd5c6ae1d6e65296f2",
+          "installedHash": "8d263336dc25ce2248ff15ecd98458433b4aa0fe8258e94e0c183d69ff8db6f8",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "a69b5512770d067fe4645433706be905346805524a59e7cd5c6ae1d6e65296f2"
+        },
+        "aif-evolve": {
+          "sourceHash": "375b25427715cfd26952c622e3bb6d3cc55a179b4a2b12597c74b63937ca51c8",
+          "installedHash": "409d3300fec8657f62f15a9cc0e99b895c11d959ee560fcbea1f18ae51be590e",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "010c8dbef6dab763d92a4d01edcc15633a39cb02081932ff391ca3c699cc5e12"
+        },
+        "aif-explore": {
+          "sourceHash": "d871fd1456c4617ac97a76a8f44641b2676f2b6f3dbfb4079d8af0e21872f6c2",
+          "installedHash": "0942c71f8b7c7d57aa8d45aedbf5a89ffc27c3fccfa43f34c7a086667aa4df9f",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "d871fd1456c4617ac97a76a8f44641b2676f2b6f3dbfb4079d8af0e21872f6c2"
+        },
+        "aif-fix": {
+          "sourceHash": "ec60439dcbeb631a5b795096d136711cf51ffd8eec77a2a06d039415350f3aa1",
+          "installedHash": "14d7497b7d979bb8bfc1b66ea0956edfd2aa538134528fa94ec090928742ef1c",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "ec60439dcbeb631a5b795096d136711cf51ffd8eec77a2a06d039415350f3aa1"
+        },
+        "aif-grounded": {
+          "sourceHash": "a7aad1dbddf9a053e31eadc1bc28fc347059a77d6cd73ad651eccee6d7a0dcd5",
+          "installedHash": "b0cb3ef2941ed590752cf0db904f5ae5421c31afe58cd9ca9e8da32651acfbfb",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "a7aad1dbddf9a053e31eadc1bc28fc347059a77d6cd73ad651eccee6d7a0dcd5"
+        },
+        "aif-implement": {
+          "sourceHash": "3dfb6773fee7ca56e3cec7f84f1a9f60676d9426c05c2f3c268df84fe59cf2b1",
+          "installedHash": "c7c45442d817fa9acf9300d15062ae08a3862e0d9c9dadbea67db8c1607fde24",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "3dfb6773fee7ca56e3cec7f84f1a9f60676d9426c05c2f3c268df84fe59cf2b1"
+        },
+        "aif-improve": {
+          "sourceHash": "02421d1956d6f2d0e911bcafb3eea1443fafadfe4ecd69546d23d565054c43e2",
+          "installedHash": "d70e89f8f7cd4881408437026208a38facd84261821ee7785748fa752ee591a6",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "02421d1956d6f2d0e911bcafb3eea1443fafadfe4ecd69546d23d565054c43e2"
+        },
+        "aif-loop": {
+          "sourceHash": "49fe2bea026a3d79aab98c9128aa40ac3640e6c5aadad66588a41d2df35c0122",
+          "installedHash": "f2e40e9d061ab7d109f18041d39d2039a05c8dc2a456125641519aeb30678a61",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "49fe2bea026a3d79aab98c9128aa40ac3640e6c5aadad66588a41d2df35c0122"
+        },
+        "aif-plan": {
+          "sourceHash": "676626e23428ec1970f9812a9664eb2dd8d2af970a787c67dc7a0ea37debf8b5",
+          "installedHash": "78d71feb9ecb4b6129d29e25315dffe87df7af763df03e6f6d13ec79d5dacbbf",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "676626e23428ec1970f9812a9664eb2dd8d2af970a787c67dc7a0ea37debf8b5"
+        },
+        "aif-plan-overview": {
+          "sourceHash": "3fcdb8b06bd2d206f22d12bd592dbda409e6af8026f7333a959da3a4ce2141f0",
+          "installedHash": "5b14951cfae571836e38c00d37efbff5f07c731d4a5b9a9ca0b73312296e17ce",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "3fcdb8b06bd2d206f22d12bd592dbda409e6af8026f7333a959da3a4ce2141f0"
+        },
+        "aif-qa": {
+          "sourceHash": "a7dbd66c2070e2d50ce8cd1e88756aac9aab9de82f5124e537c13664208a1dad",
+          "installedHash": "313a693dee223fdcc9760039eea28b0c2a62e04222a01ed9cfa29b8a9eb8413c",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "a7dbd66c2070e2d50ce8cd1e88756aac9aab9de82f5124e537c13664208a1dad"
+        },
+        "aif-qa-check": {
+          "sourceHash": "f66bc9988cf566ee1cc2e82258e0056c729a09e24aabc30c8d78448200f40021",
+          "installedHash": "5a1f9a9c9765c744b44e4f9d2508790b07d533e9079728674a0936874f3ec814",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "f66bc9988cf566ee1cc2e82258e0056c729a09e24aabc30c8d78448200f40021"
+        },
+        "aif-reference": {
+          "sourceHash": "bc59c70d38c4944e38fde2716d6a2b61b5145b94ec3d45ffef7028db612dc3ff",
+          "installedHash": "629e74bc3e563bb128ce34faab475b89c516847a55df3de4dde42eb153756c21",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "bc59c70d38c4944e38fde2716d6a2b61b5145b94ec3d45ffef7028db612dc3ff"
+        },
+        "aif-review": {
+          "sourceHash": "a76feac3f809ce2630c2088d69b29f2ba9d8355e01bfdf3895ee3dd56f383fe7",
+          "installedHash": "2af779d6ff1f51b78ce186b8ba19cf9b7192e8f074481d24f95d18d043799f17",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "a76feac3f809ce2630c2088d69b29f2ba9d8355e01bfdf3895ee3dd56f383fe7"
+        },
+        "aif-roadmap": {
+          "sourceHash": "5cabbe036b9d39135afb8092772ec3f33edd2510623ea0fae09f93217b4b68a5",
+          "installedHash": "9241e6d26cd3d6a0ca39cbc46e711e4ba1f419879435ed9a613aeec00869e2c7",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "5cabbe036b9d39135afb8092772ec3f33edd2510623ea0fae09f93217b4b68a5"
+        },
+        "aif-roadmap-next": {
+          "sourceHash": "7958f0912a91e8610708b24e891db318797fefcd7004da55a814d6e7bae3ce09",
+          "installedHash": "87f383728a34bd156c2f9ed252e1a2e09fc946d40e1096e3e54dbc80c9169951",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "7958f0912a91e8610708b24e891db318797fefcd7004da55a814d6e7bae3ce09"
+        },
+        "aif-rules": {
+          "sourceHash": "43e0c3dbcd75614e99d7e78b9d39b52de63216c0dbfff6a69eb2df893c99b7ec",
+          "installedHash": "6e98e45f521ab77c17cb7f4ac8979188a5e0a80151166646da7a06be6a59099a",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "43e0c3dbcd75614e99d7e78b9d39b52de63216c0dbfff6a69eb2df893c99b7ec"
+        },
+        "aif-rules-check": {
+          "sourceHash": "fc4413a9a95c4ec3f39016289f1c632bf0a94cbb2bfe06083c7fc96e93ff7bd4",
+          "installedHash": "52fe7becd55f58f7bc23e3bbf661c3b155324964096fa5a5cb9c3483ff2d4c72",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "fc4413a9a95c4ec3f39016289f1c632bf0a94cbb2bfe06083c7fc96e93ff7bd4"
+        },
+        "aif-security-checklist": {
+          "sourceHash": "19b001a11c85d9108859fbd75a2cd475786ac4a70a167af78ad2e7d48846b515",
+          "installedHash": "bdd3a7cdbf00f52e252e18bb4ce608b2c2b718ca8d21fda318ddf6353d8ede97",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "e5f8f4fc00c3a2a0e17554cd7846b80a2b3fbd36d4fce233073c294e9d57a9d4"
+        },
+        "aif-skill-generator": {
+          "sourceHash": "c9908a15081740df44a86c06f0bb0d5013edd875ec7651f0355034fb1b2fa50b",
+          "installedHash": "1ebb654e5999f8d330e60fb21b7d250d41c99389f0ef8d8cee8c7b727a17a22e",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "83ed254c2bf2c78147a185c7deeac66da9014771561167002f5d6603131a0c00"
+        },
+        "aif-skills-audit": {
+          "sourceHash": "b34a051d531fad91a9c173cc89efb412bb4902f7bcbfab4590ca4fecb23c3dc5",
+          "installedHash": "e67077698b1bd77d73d9a899a8d52a825b6bde11acfc6c111d9d18e496d18e43",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "788cbec761708f53370298de1eef34986bb14dcfe178051cc3d6d891ccf8b54c"
+        },
+        "aif-transfer": {
+          "sourceHash": "3296fd06320b0d80a29587f2493a5f3629cd64f982b8e345b109c0563db9a341",
+          "installedHash": "b7360667cd0a69dd457456532e2e8ac87e098aa4a60d7fb357dac486292c1b35",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "49b785ee9dfeb5cf462d9e79d1aba39bfca5a740b3660c61e5fc7e1c1b9323f9"
+        },
+        "aif-verify": {
+          "sourceHash": "08b5a90bbfe04b759681a9894b22028ceda6fffacfe86a341584b893d8f2beec",
+          "installedHash": "8bf6551b31dc563801bf03f3f5b8c56440e457d5ca409debf9dfcba0bfcb205f",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "08b5a90bbfe04b759681a9894b22028ceda6fffacfe86a341584b893d8f2beec"
+        },
+        "aif-warmup": {
+          "sourceHash": "5d48312094750109471b169fba7f38ea10f8a09dc87379be4bdc03725ce17870",
+          "installedHash": "1f6566e2bde2b44699045e99df46c2d53bcaa3c7de9df36d900f785fb1016fee",
+          "renderContextHash": "a7e756b663d21a35f26ca9d680248356abf650a5f25a9dac0570823cd947a835",
+          "rawInstalledHash": "5d48312094750109471b169fba7f38ea10f8a09dc87379be4bdc03725ce17870"
+        }
+      },
+      "managedAgentFiles": {
+        "best-practices-sidecar.md": {
+          "sourceHash": "d6299d586c6b05d554fcf18cba600616b37acc7992b3bd60be1cf3d2d51571d6",
+          "installedHash": "d6299d586c6b05d554fcf18cba600616b37acc7992b3bd60be1cf3d2d51571d6"
+        },
+        "commit-preparer.md": {
+          "sourceHash": "8ebc0658194d2c5b050e4ac0cca07b133534a44f021b1ac925e1b9589bea2a9e",
+          "installedHash": "8ebc0658194d2c5b050e4ac0cca07b133534a44f021b1ac925e1b9589bea2a9e"
+        },
+        "docs-auditor.md": {
+          "sourceHash": "f71dd1b0a2e87995db15ca3c23f601a8b6cef8a189af27230552b08d693c5057",
+          "installedHash": "f71dd1b0a2e87995db15ca3c23f601a8b6cef8a189af27230552b08d693c5057"
+        },
+        "implement-coordinator.md": {
+          "sourceHash": "83dece914bf87c1d69e007f33a7e2858166fbfae78752e6c8ac5e6856ab6733d",
+          "installedHash": "83dece914bf87c1d69e007f33a7e2858166fbfae78752e6c8ac5e6856ab6733d"
+        },
+        "implement-worker.md": {
+          "sourceHash": "6de0d0d9d8d21d7d22dca7001f4bad14595080ffaa52b808af6ec26bb0eb7427",
+          "installedHash": "6de0d0d9d8d21d7d22dca7001f4bad14595080ffaa52b808af6ec26bb0eb7427"
+        },
+        "loop-critic.md": {
+          "sourceHash": "92bd4234ccbc6bccd3270c63ae5dc64624b68152ca24f3cb54d9682f78faeea1",
+          "installedHash": "92bd4234ccbc6bccd3270c63ae5dc64624b68152ca24f3cb54d9682f78faeea1"
+        },
+        "loop-evaluator.md": {
+          "sourceHash": "61bc1fc27327bd65b66a0094e7bd9415581709bb81d1649ab0966c11111ba5a4",
+          "installedHash": "61bc1fc27327bd65b66a0094e7bd9415581709bb81d1649ab0966c11111ba5a4"
+        },
+        "loop-invariant-prep.md": {
+          "sourceHash": "86f5a8665930110cac6a2bfe380fa5b3d26127e692b0375f73b278549e6b98d4",
+          "installedHash": "86f5a8665930110cac6a2bfe380fa5b3d26127e692b0375f73b278549e6b98d4"
+        },
+        "loop-orchestrator.md": {
+          "sourceHash": "f0aa77d61eb2d70ead379aa5431485f8b2c4f0b79394dd673bbdbd5229a85270",
+          "installedHash": "f0aa77d61eb2d70ead379aa5431485f8b2c4f0b79394dd673bbdbd5229a85270"
+        },
+        "loop-perf-prep.md": {
+          "sourceHash": "6a6571d6d5cefce62ef2847e51205acbe92f0f83287f007ae9f670a3d336eb7f",
+          "installedHash": "6a6571d6d5cefce62ef2847e51205acbe92f0f83287f007ae9f670a3d336eb7f"
+        },
+        "loop-planner.md": {
+          "sourceHash": "051c4f7d00b5e85a1c31bc13b1cefd7f50b716ce4be8beec524c9a596b4d2908",
+          "installedHash": "051c4f7d00b5e85a1c31bc13b1cefd7f50b716ce4be8beec524c9a596b4d2908"
+        },
+        "loop-producer.md": {
+          "sourceHash": "732debca970e74ca9c5d8db2a96f4b0bc5605856c68bfbf488d447705f8ddadf",
+          "installedHash": "732debca970e74ca9c5d8db2a96f4b0bc5605856c68bfbf488d447705f8ddadf"
+        },
+        "loop-refiner.md": {
+          "sourceHash": "82ae84e6b83bd3cc1a0f29db3bacb1d64ab00a87274adc1458651187a6418d2a",
+          "installedHash": "82ae84e6b83bd3cc1a0f29db3bacb1d64ab00a87274adc1458651187a6418d2a"
+        },
+        "loop-test-prep.md": {
+          "sourceHash": "f86d07fe3193f0c3e6adf280eee0ea1bb0196e982d16cf12dff947a292baa7ff",
+          "installedHash": "f86d07fe3193f0c3e6adf280eee0ea1bb0196e982d16cf12dff947a292baa7ff"
+        },
+        "plan-coordinator.md": {
+          "sourceHash": "abdedebc01a439869fc35fde3d211bdd5c9bb7ec0cefa97eb3d5c735a1bca40c",
+          "installedHash": "abdedebc01a439869fc35fde3d211bdd5c9bb7ec0cefa97eb3d5c735a1bca40c"
+        },
+        "plan-polisher.md": {
+          "sourceHash": "8fed2d3559537b795a6f43faf7f717c422b027e0a35af3c7b2fa74b409556b91",
+          "installedHash": "8fed2d3559537b795a6f43faf7f717c422b027e0a35af3c7b2fa74b409556b91"
+        },
+        "review-sidecar.md": {
+          "sourceHash": "362856f185785d84629ddf947e7015003c766b1caf272b6df6bd25c3516bcc95",
+          "installedHash": "362856f185785d84629ddf947e7015003c766b1caf272b6df6bd25c3516bcc95"
+        },
+        "review-validator.md": {
+          "sourceHash": "af571ef7321faa27c9539e34f84afb6d07bf0c442166d3bbd69eaac31c7c4e51",
+          "installedHash": "af571ef7321faa27c9539e34f84afb6d07bf0c442166d3bbd69eaac31c7c4e51"
+        },
+        "rules-sidecar.md": {
+          "sourceHash": "a4d802b9d81eb5df512ecfefc54be7e4c4afd83b5c6aa9908c28d5e97eddc460",
+          "installedHash": "a4d802b9d81eb5df512ecfefc54be7e4c4afd83b5c6aa9908c28d5e97eddc460"
+        },
+        "security-sidecar.md": {
+          "sourceHash": "515635e77f18bf95fce1cbe979c4e515b03f37274a201b669d17cbdc9e2a6906",
+          "installedHash": "515635e77f18bf95fce1cbe979c4e515b03f37274a201b669d17cbdc9e2a6906"
+        }
+      }
+    }
+  ],
+  "extensions": []
+}

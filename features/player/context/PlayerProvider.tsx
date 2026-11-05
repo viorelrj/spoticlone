@@ -2,13 +2,16 @@ import { IChildrenProps } from '@spc/types/base-props';
 import {
   useEffect, useState,
 } from 'react';
+import { getToken } from '@spc/features/auth/token';
 import PlayerScript, { useSpotifyScriptReadiness } from '../components/PlayerScript';
 
 import { PlayerContext } from './PlayerContext';
 
-const createPlayer = (getToken: () => string) => new Spotify.Player({
+const createPlayer = () => new Spotify.Player({
   name: 'Spoticlone App',
-  getOAuthToken: (cb) => { cb(getToken() || ''); },
+  getOAuthToken: (cb) => {
+    getToken().catch(() => '').then(cb);
+  },
 });
 
 export const PlayerContextProvider = ({ children }: IChildrenProps) => {
@@ -17,7 +20,7 @@ export const PlayerContextProvider = ({ children }: IChildrenProps) => {
 
   useEffect(() => {
     if (!isScriptReady) return () => undefined;
-    const p = createPlayer(() => window.token);
+    const p = createPlayer();
     if (!p) return () => undefined;
     p.connect().then(() => {
       setPlayer(p);

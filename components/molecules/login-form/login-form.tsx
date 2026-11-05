@@ -1,30 +1,26 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { startLogin } from '@spc/features/auth/pkce';
 
 const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
 const redirectUri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI;
 
-function getLoginSearchParams(id: string, redirect: string) {
-  const searchParams = new URLSearchParams();
-  searchParams.append('client_id', id);
-  searchParams.append('redirect_uri', redirect);
-  searchParams.append('response_type', 'token');
-  searchParams.append('scope', 'user-read-private user-read-email app-remote-control streaming user-read-playback-state user-modify-playback-state app-remote-control');
-
-  return searchParams;
-}
-
-const login = () => {
-  if (!clientId || !redirectUri) return;
-  window.location.replace(`https://accounts.spotify.com/authorize?${getLoginSearchParams(clientId, redirectUri)}`);
-};
-
 export const LoginForm = () => {
+  const [error, setError] = useState<string | null>(null);
+  // Guards against StrictMode running the effect twice.
+  const started = useRef(false);
+
   useEffect(() => {
-    login();
+    if (started.current) return;
+    started.current = true;
+    if (!clientId || !redirectUri) {
+      setError('Spotify client is not configured');
+      return;
+    }
+    startLogin(clientId, redirectUri).catch(() => setError('Could not start Spotify login'));
   }, []);
 
   return (
-    <div>Redirecting you</div>
+    <div>{error ?? 'Redirecting you'}</div>
   );
 };
 

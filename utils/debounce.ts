@@ -1,5 +1,7 @@
-function debounce<F extends(...args: any[])
-  => any>(func: F, wait: number): (...args: Parameters<F>) => void {
+function debounce<F extends (...args: never[]) => unknown>(
+  func: F,
+  wait: number,
+): (...args: Parameters<F>) => void {
   let timeout: NodeJS.Timeout | null;
 
   return (...args: Parameters<F>) => {

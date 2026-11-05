@@ -23,8 +23,8 @@ export const usePlayerDevices = () => {
 
   useEffect(
     () => {
-      const handleReady = ({ device_id }: {device_id: string}) => {
-        setDevice(device_id);
+      const handleReady = ({ device_id: deviceId }: { device_id: string }) => {
+        setDevice(deviceId);
       };
       const handleStateChanged = debounce(() => queryClient.invalidateQueries(['devices']), 300);
 

@@ -2,10 +2,10 @@
   "name": "spoticlone",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -H 127.0.0.1",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "test": "jest",
     "prepare": "husky install"
   },
@@ -42,7 +42,7 @@
     "eslint": "^8.47.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.1.0",
-    "eslint-config-next": "latest",
+    "eslint-config-next": "^15.5.29",
     "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-typescript": "^3.6.0",
     "eslint-plugin-import": "^2.28.0",

@@ -18,6 +18,8 @@
     "import/no-extraneous-dependencies": ["off", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}],
     "import/prefer-default-export": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/function-component-definition": [2, { "namedComponents": "arrow-function" }]
+    "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
+    "react/jsx-no-useless-fragment": ["error", { "allowExpressions": true }],
+    "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state"] }]
   }
 }
