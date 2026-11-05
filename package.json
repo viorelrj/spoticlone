@@ -9,6 +9,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@amplitude/unified": "^1.2.1",
     "@chakra-ui/react": "^3.36.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",

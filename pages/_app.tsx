@@ -5,6 +5,7 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Player } from '@spc/features/player/components/player/player.component';
 import { TokenContextProvider } from '@spc/contexts/token.context';
+import { Amplitude } from '@spc/components/amplitude/amplitude.component';
 import { PlayerContextProvider } from '@spc/features/player/context/PlayerProvider';
 import { store } from '../store';
 import './_app.scss';
@@ -13,6 +14,7 @@ const queryClient = new QueryClient();
 
 const CustomApp = ({ Component, pageProps }: AppProps) => (
   <Provider store={store}>
+    <Amplitude />
     <TokenContextProvider>
       <ChakraProvider value={defaultSystem}>
         <Head>

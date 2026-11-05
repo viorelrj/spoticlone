@@ -4,6 +4,7 @@ import {
 import { SearchForm } from '@spc/components/molecules/search-form/search-form.component';
 import { ISearchFormState } from '@spc/components/molecules/search-form/search-form.type';
 import { SearchResults } from '@spc/components/molecules/search-results/search-results.component';
+import { track } from '@amplitude/unified';
 import { setPlaying, search } from 'api';
 import { ISearchResult } from 'api/api.interface';
 import { useDebounce } from 'hooks/debounce.hook';
@@ -37,7 +38,10 @@ export const SearchPageContent = () => {
       <SearchResults
         className={styles.search_results}
         results={searchResults}
-        onSelect={setPlaying}
+        onSelect={(uri) => {
+          track('Track Selected');
+          setPlaying(uri);
+        }}
       />
     </div>
   );
