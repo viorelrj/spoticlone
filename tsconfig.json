@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "es2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,35 +14,17 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
+    "ignoreDeprecations": "6.0",
+    "types": ["node", "spotify-web-playback-sdk"],
     "baseUrl": ".",
     "paths": {
-      "@spc/componvents/*": [
-        "./components/*"
-      ],
-      "@spc/utils/*": [
-        "./utils/*"
-      ],
-      "@spc/types/*": [
-        "./types/*"
-      ],
-      "@spc/contexts/*": [
-        "./contexts/*"
-      ],
-      "@spc/features/*": [
-        "./features/*"
-      ]
+      "@spc/components/*": ["./components/*"],
+      "@spc/utils/*": ["./utils/*"],
+      "@spc/types/*": ["./types/*"],
+      "@spc/contexts/*": ["./contexts/*"],
+      "@spc/features/*": ["./features/*"],
     },
-    "typeRoots": [
-      "./node_modules/@types",
-      "./types"
-    ]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
 }

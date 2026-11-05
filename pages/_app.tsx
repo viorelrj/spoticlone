@@ -1,4 +1,4 @@
-import { ChakraProvider, createLocalStorageManager } from '@chakra-ui/react';
+import { ChakraProvider, defaultSystem } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Provider } from 'react-redux';
 import { AppProps } from 'next/app';
@@ -9,13 +9,12 @@ import { PlayerContextProvider } from '@spc/features/player/context/PlayerProvid
 import { store } from '../store';
 import './_app.scss';
 
-const manager = createLocalStorageManager('my-key');
 const queryClient = new QueryClient();
 
 const CustomApp = ({ Component, pageProps }: AppProps) => (
   <Provider store={store}>
     <TokenContextProvider>
-      <ChakraProvider colorModeManager={manager}>
+      <ChakraProvider value={defaultSystem}>
         <Head>
           <title>Spoticlone</title>
         </Head>

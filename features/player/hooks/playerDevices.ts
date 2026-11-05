@@ -1,15 +1,12 @@
 import { useEffect, useCallback } from 'react';
-import {
-  pipe, propEq, find, prop,
-} from 'ramda';
 import { useQueryClient } from '@tanstack/react-query';
+import { DeviceType } from 'api/entities';
 import { useDevicesMutation, useDevicesQuery } from '@spc/features/player/requests';
 import debounce from 'utils/debounce';
 import { usePlayerContext } from '../context/PlayerContext';
 
-const selectActiveDevice = pipe(
-  find(propEq(true, 'isActive', )),
-  prop('id'),
+const selectActiveDevice = (devices: DeviceType[]): string | undefined => (
+  devices.find((device) => device.isActive)?.id
 );
 
 export const usePlayerDevices = () => {
@@ -26,7 +23,7 @@ export const usePlayerDevices = () => {
       const handleReady = ({ device_id: deviceId }: { device_id: string }) => {
         setDevice(deviceId);
       };
-      const handleStateChanged = debounce(() => queryClient.invalidateQueries(['devices']), 300);
+      const handleStateChanged = debounce(() => queryClient.invalidateQueries({ queryKey: ['devices'] }), 300);
 
       player?.addListener('ready', handleReady);
       player?.addListener('player_state_changed', handleStateChanged);

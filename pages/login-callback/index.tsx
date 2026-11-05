@@ -19,7 +19,8 @@ export const LoginCallback = () => {
     const { code, state } = router.query;
     const session = consumePkceSession();
     if (typeof code !== 'string' || !session || state !== session.state) {
-      setError('Spotify login failed.');
+      // Set asynchronously to avoid a synchronous setState inside the effect.
+      Promise.resolve().then(() => setError('Spotify login failed.'));
       return;
     }
 
