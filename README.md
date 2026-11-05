@@ -10,7 +10,11 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Spotify setup
+
+1. Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_SPOTIFY_CLIENT_ID` to your Spotify app's client ID.
+2. In the Spotify developer dashboard, register exactly `http://127.0.0.1:3000/login-callback` as a redirect URI. Spotify does not accept `localhost` redirect URIs.
+3. Open [http://127.0.0.1:3000](http://127.0.0.1:3000) (not `localhost`). Login uses Authorization Code with PKCE, and the PKCE verifier is stored per origin, so the app must run on the same origin as the redirect URI.
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 

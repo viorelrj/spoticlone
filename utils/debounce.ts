@@ -1,4 +1,4 @@
-function debounce<F extends (...args: unknown[]) => unknown>(
+function debounce<F extends (...args: never[]) => unknown>(
   func: F,
   wait: number,
 ): (...args: Parameters<F>) => void {
